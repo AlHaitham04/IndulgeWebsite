@@ -154,38 +154,62 @@ function Shop({ basket, setBasket }) {
                 </div>
                 <div className="Products">
                     {currentProducts.map(p => (
-                        <div key={p.id} className={`ProductCard ${activeProduct === p.id ? "active" : ""} ${!p.stock ? "out-of-stock" : ""}`} onClick={() => handleCardClick(p.id)}>
+                        <div
+                            key={p.id}
+                            className={`ProductCard ${activeProduct === p.id ? "active" : ""} ${!p.stock ? "out-of-stock" : ""}`}
+                            onClick={() => handleCardClick(p.id)}
+                        >
                             <div className="Media">
                                 <ImageSlider images={p.images} />
                                 <div className="description">{p.description}</div>
                             </div>
+
                             <p><strong>{p.name}</strong></p>
-                            <p>{p.price} OMR</p>
-                            <small>{p.category} / {p.material}</small>
 
-                            <div className="size-select">
-                                {p.stock ? (
-                                    <>
+                            {p.stock ? (
+                                <>
+                                    <p>{p.price} OMR</p>
+                                    <small>{p.category} / {p.material}</small>
+
+                                    <div className="size-select">
                                         <label>Size: </label>
-                                        <select value={selectedSizes[p.id] || ""} onChange={(e) => handleSizeChange(p.id, e.target.value)}>
+                                        <select
+                                            value={selectedSizes[p.id] || ""}
+                                            onChange={(e) => handleSizeChange(p.id, e.target.value)}
+                                        >
                                             <option value="">Select</option>
-                                            {["XS", "S", "M", "L", "XL", "XXL"].map(size => <option key={size} value={size}>{size}</option>)}
+                                            {["XS", "S", "M", "L", "XL", "XXL"].map(size => (
+                                                <option key={size} value={size}>{size}</option>
+                                            ))}
                                         </select>
-                                    </>
-                                ) : (
-                                    <div style={{ visibility: "hidden", height: "4.9rem" }}>Size placeholder</div>
-                                )}
-                            </div>
+                                    </div>
 
-                            {p.stock && <button className="addButton" onClick={(e) => { e.stopPropagation(); handleAddToBasket(p); }}>Add to Cart</button>}
+                                    <button
+                                        className="addButton"
+                                        onClick={(e) => { e.stopPropagation(); handleAddToBasket(p); }}
+                                    >
+                                        Add to Cart
+                                    </button>
+                                </>
+                            ) : (
+                                <div className="out-of-stock-text">Out of Stock</div>
+                            )}
                         </div>
                     ))}
+
                     <div className="Pagination">
                         {Array.from({ length: totalPages }, (_, i) => (
-                            <button key={i + 1} className={`page-btn ${currentPage === i + 1 ? "active" : ""}`} onClick={() => setCurrentPage(i + 1)}>{i + 1}</button>
+                            <button
+                                key={i + 1}
+                                className={`page-btn ${currentPage === i + 1 ? "active" : ""}`}
+                                onClick={() => setCurrentPage(i + 1)}
+                            >
+                                {i + 1}
+                            </button>
                         ))}
                     </div>
                 </div>
+
             </div>
         </div>
     );
