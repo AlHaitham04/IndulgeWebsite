@@ -1,0 +1,140 @@
+.BasketPage {
+    background-color: #f6f1eb;
+    color: #2e2b26;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.BasketPage h1 {
+    color: #b89a67;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.empty-basket {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.empty-basket a {
+    color: #b89a67;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.BasketItems {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.BasketItem {
+    display: flex;
+    gap: 1rem;
+    background: #fffdfb;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    align-items: center;
+}
+
+.BasketImage img {
+    width: 120px;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.BasketInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.removeButton {
+    background-color: #b89a67;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+}
+
+.removeButton:hover {
+    background-color: #a1814f;
+    transform: scale(1.05);
+}
+
+.BasketTotal {
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.continue-btn {
+    display: inline-block;
+    background-color: #b89a67;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: -1rem;
+}
+
+.continue-btn:hover {
+    background-color: #a1814f;
+    transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+    .BasketItem {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .BasketImage {
+        flex: 0 0 35%;
+    }
+
+    .BasketImage img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        object-fit: cover;
+    }
+
+    .BasketInfo {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        font-size: 0.85rem;
+    }
+
+    .removeButton {
+        flex-shrink: 0;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .BasketTotal {
+        text-align: right;
+        font-size: 1rem;
+        margin-top: 0rem;
+    }
+}

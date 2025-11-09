@@ -1,0 +1,126 @@
+.CheckoutPage {
+    background: #f6f1eb;
+    min-height: 100vh;
+    padding: 2rem;
+    color: #2e2b26;
+}
+
+.CheckoutPage h1 {
+    color: #b89a67;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.CheckoutPage-section {
+    background: #fffdfb;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+}
+
+.CheckoutPage-section h2 {
+    margin-bottom: 1rem;
+    color: #b89a67;
+}
+
+.CheckoutPage-order-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.CheckoutPage-order-list li {
+    margin-bottom: 0.4rem;
+}
+
+.CheckoutPage-label {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.CheckoutPage-input,
+.CheckoutPage-textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 4px;
+    border: 1px solid #e8e1d7;
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+    box-sizing: border-box;
+}
+
+.CheckoutPage-sendCodeBtn,
+.CheckoutPage-verifyBtn,
+.CheckoutPage-checkoutBtn {
+    background-color: #b89a67;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.CheckoutPage-sendCodeBtn:hover,
+.CheckoutPage-verifyBtn:hover,
+.CheckoutPage-checkoutBtn:hover {
+    background-color: #a1814f;
+    transform: scale(1.05);
+}
+
+.CheckoutPage-btn {
+    background-color: #b89a67;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+}
+
+.CheckoutPage-btn:hover {
+    background-color: #a1814f;
+    transform: scale(1.05);
+}
+
+.CheckoutPage-phone-container {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 1rem;
+    width: fit-content;
+}
+
+.CheckoutPage-country-code {
+    padding: 0.5rem;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    background-color: #f0f0f0;
+    font-size: 0.95rem;
+    width: 4rem;
+}
+
+.CheckoutPage-phone-number {
+    flex: 1 1 auto;
+    padding: 0.5rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 0 4px 4px 0;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.CheckoutPage-textarea::placeholder {
+    font-family: 'New Roman, Times, serif';
+
+}
