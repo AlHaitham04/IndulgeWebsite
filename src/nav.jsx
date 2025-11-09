@@ -4,6 +4,7 @@ import Shop from './Shop/Shop.jsx';
 import Home from './Home/Home.jsx';
 import Basket from './Basket/Basket.jsx';
 import Checkout from './Checkout/Checkout.jsx';
+import SizeChart from './SizeChart/SizeChart.jsx';
 
 function Nav() {
     const [basket, setBasket] = useState([]);
@@ -16,6 +17,7 @@ function Nav() {
                     <Route path="/Shop" element={<Shop basket={basket} setBasket={setBasket} />} />
                     <Route path="/Basket" element={<Basket basket={basket} setBasket={setBasket} />} />
                     <Route path="/Checkout" element={<Checkout basket={basket} setBasket={setBasket} />} />
+                    <Route path="/SizeChart" element={<SizeChart />} />
                 </Routes>
             </div>
         </Router>
