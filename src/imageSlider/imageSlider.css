@@ -13,7 +13,7 @@
     display: block;
     object-fit: cover;
     aspect-ratio: 3 / 4;
-    transition: opacity 0.4s ease, transform 0.3s ease;
+    transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 .prev,
@@ -65,4 +65,12 @@
 
 .dot.active {
     background-color: white;
+}
+
+@media (max-width: 768px) {
+
+    .prev,
+    .next {
+        display: none !important;
+    }
 }
