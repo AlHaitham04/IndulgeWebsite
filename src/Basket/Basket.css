@@ -42,7 +42,7 @@
 }
 
 .BasketImage img {
-    width: 120px;
+    width: 240px;
     height: auto;
     border-radius: 6px;
     object-fit: cover;

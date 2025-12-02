@@ -6,23 +6,26 @@ import { FaShoppingBasket } from "react-icons/fa";
 
 function Shop({ basket, setBasket }) {
     const initialProducts = [
-        { id: 1, name: "E01", price: 26, category: "Abaya", material: "Cotton", stock: false, images: ["/IndulgeWebsite/E01/E01.1.jpg", "/IndulgeWebsite/E01/E01.3.jpg"], description: "Code: E01. Simple cut crepe abaya Available in different colors" },
-        { id: 2, name: "B01", price: 20, category: "Set", material: "Linen", stock: false, images: ["/IndulgeWebsite/B01/B01.1.jpg", "/IndulgeWebsite/B01/B01.2.jpg", "/IndulgeWebsite/B01/B01.3.jpg"], description: "Top & Trousers set. Available in different sizes" },
-        { id: 3, name: "E02", price: 26, category: "Abaya", material: "Cotton", stock: false, images: ["/IndulgeWebsite/E02/E02.1.jpg", "/IndulgeWebsite/E02/E02.2.jpg", "/IndulgeWebsite/E02/E02.3.jpg", "/IndulgeWebsite/E02/E02.4.jpg"], description: "Code: E02. Coat cut crepe abaya Available in different colors" },
+        { id: 1, name: "E01", price: 26, category: "Abaya", material: "Crepe", stock: true, images: ["/IndulgeWebsite/E01/E01.1.jpg", "/IndulgeWebsite/E01/E01.3.jpg"], description: "Code: E01. Simple cut crepe abaya Available in different colors" },
+        { id: 2, name: "B01", price: 20, category: "Set", material: "Linen", stock: true, images: ["/IndulgeWebsite/B01/B01.1.jpg", "/IndulgeWebsite/B01/B01.2.jpg", "/IndulgeWebsite/B01/B01.3.jpg"], description: "Top & Trousers set. Available in different sizes" },
+        { id: 3, name: "E02", price: 26, category: "Abaya", material: "Crepe", stock: false, images: ["/IndulgeWebsite/E02/E02.1.jpg", "/IndulgeWebsite/E02/E02.2.jpg", "/IndulgeWebsite/E02/E02.3.jpg", "/IndulgeWebsite/E02/E02.4.jpg"], description: "Code: E02. Coat cut crepe abaya Available in different colors" },
         { id: 4, name: "B02", price: 20, category: "Set", material: "Linen", stock: false, images: ["/IndulgeWebsite/B02/B02.1.jpg", "/IndulgeWebsite/B02/B02.2.jpg", "/IndulgeWebsite/B02/B02.3.jpg"], description: "Code: B02. Linen set - vest with comfortable elastic trousers Comes in different sizes" },
-        { id: 5, name: "E03", price: 26, category: "Abaya", material: "Cotton", stock: false, images: ["/IndulgeWebsite/E03/E03.1.jpg", "/IndulgeWebsite/E03/E03.2.jpg", "/IndulgeWebsite/E03/E03.3.jpg", "/IndulgeWebsite/E03/E03.4.jpg"], description: "Code: E03. Simple cut crepe abaya Comes in different colors" },
+        { id: 5, name: "E03", price: 26, category: "Abaya", material: "Crepe", stock: false, images: ["/IndulgeWebsite/E03/E03.1.jpg", "/IndulgeWebsite/E03/E03.2.jpg", "/IndulgeWebsite/E03/E03.3.jpg", "/IndulgeWebsite/E03/E03.4.jpg"], description: "Code: E03. Simple cut crepe abaya Comes in different colors" },
         { id: 6, name: "B03", price: 20, category: "Set", material: "Linen", stock: false, images: ["/IndulgeWebsite/B03/B03.1.jpg", "/IndulgeWebsite/B03/B03.2.jpg", "/IndulgeWebsite/B03/B03.3.jpg"], description: "Code: B03. Cropped vest with comfortable elastic trousers. Comes in different sizes" },
-        { id: 7, name: "E04", price: 26, category: "Abaya", material: "Cotton", stock: false, images: ["/IndulgeWebsite/E04/E04.1.jpg"], description: "Code: E04. Coat cut crepe abaya Perfect light layerable coat also suitable for travel Available in different colours" },
-        { id: 8, name: "B04", price: 16, category: "Other", material: "Cotton", stock: false, images: ["/IndulgeWebsite/B04/B04.1.jpg"], description: "Code: B04. Under abaya dress that can be worn in multiple different ways or alone Available in different colors" },
-        { id: 9, name: "E05", price: 37, category: "Jalabiya", material: "Cotton", stock: false, images: ["/IndulgeWebsite/E05/E05.1.jpg", "/IndulgeWebsite/E05/E05.2.jpg"], description: "Code: E05. Luxurious black Abaya." },
-        { id: 10, name: "E06", price: 37, category: "Jalabiya", material: "Cotton", stock: false, images: ["/IndulgeWebsite/E06/E06.1.jpg", "/IndulgeWebsite/E06/E06.2.jpg"], description: "Code: E06. Luxurious 2 layer jalabiya, outter layer made from chiffon and inner layer made from silk with delicate embroidery." },
-        { id: 11, name: "E07", price: 49, category: "Jalabiya", material: "Cotton", stock: false, images: ["/IndulgeWebsite/E07/E07.1.jpg"], description: "Code: E07. Luxurious 2 layer jalabiya, outter layer made from chiffon and inner layer made from silk with delicate embroidery." },
-        { id: 12, name: "B05", price: 20, category: "Set", material: "Cotton", stock: false, images: ["/IndulgeWebsite/B05/B05.1.jpg", "/IndulgeWebsite/B05/B05.2.jpg", "/IndulgeWebsite/B05/B05.3.jpg"], description: "Code: B05. From sunrise to sunset, linen keeps you fresh, comfortable, and effortlessly chic. Also available in black. Sizes: S to XXL" },
-        { id: 13, name: "E08", price: 26, category: "Abaya", material: "Cotton", stock: false, images: ["/IndulgeWebsite/E08/E08.1.jpg", "/IndulgeWebsite/E08/E08.2.jpg", "/IndulgeWebsite/E08/E08.3.jpg", "/IndulgeWebsite/E08/E08.4.jpg", "/IndulgeWebsite/E08/E08.5.jpg", "/IndulgeWebsite/E08/E08.6.jpg"], description: "Code: E08." },
-        { id: 14, name: "B06", price: 20, category: "Set", material: "Cotton", stock: false, images: ["/IndulgeWebsite/B06/B06.1.jpg", "/IndulgeWebsite/B06/B06.2.jpg"], description: "Code: B06." },
+        { id: 7, name: "E04", price: 26, category: "Abaya", material: "Crepe", stock: false, images: ["/IndulgeWebsite/E04/E04.1.jpg"], description: "Code: E04. Coat cut crepe abaya Perfect light layerable coat also suitable for travel Available in different colours" },
+        { id: 8, name: "B04", price: 16, category: "Other", material: "Crepe", stock: false, images: ["/IndulgeWebsite/B04/B04.1.jpg"], description: "Code: B04. Under abaya dress that can be worn in multiple different ways or alone Available in different colors" },
+        { id: 9, name: "E05", price: 37, category: "Abaya", material: "Crepe", stock: true, images: ["/IndulgeWebsite/E05/E05.1.jpg", "/IndulgeWebsite/E05/E05.2.jpg"], description: "Code: E05. Luxurious black Abaya." },
+        { id: 10, name: "C01", price: 37, category: "Jalabiya", material: "Chiffon", stock: true, images: ["/IndulgeWebsite/C01/C01.1.jpg", "/IndulgeWebsite/C01/C01.2.jpg"], description: "Code: C01. Luxurious 2 layer jalabiya, outter layer made from chiffon and inner layer made from silk with delicate embroidery." },
+        { id: 11, name: "C02", price: 49, category: "Jalabiya", material: "Chiffon", stock: true, images: ["/IndulgeWebsite/C02/C02.1.jpg", "/IndulgeWebsite/C02/C02.2.jpg", "/IndulgeWebsite/C02/C02.3.jpg"], description: "Code: C02. Luxurious 2 layer jalabiya, outter layer made from chiffon and inner layer made from silk with delicate embroidery." },
+        { id: 12, name: "B05", price: 20, category: "Set", material: "Crepe", stock: true, images: ["/IndulgeWebsite/B05/B05.1.jpg", "/IndulgeWebsite/B05/B05.2.jpg", "/IndulgeWebsite/B05/B05.3.jpg"], description: "Code: B05. From sunrise to sunset, linen keeps you fresh, comfortable, and effortlessly chic. Also available in black. Sizes: S to XXL" },
+        { id: 13, name: "E06", price: 44, category: "Abaya", material: "Crepe", stock: true, images: ["/IndulgeWebsite/E09/E09.3.jpg", "/IndulgeWebsite/E09/E09.1.jpg", "/IndulgeWebsite/E09/E09.2.jpg"], description: "Code: E06. A luxurious abaya in elegant black that catches the eye, decorated with high-quality glass beads with a crystal-like shine." },
+        { id: 14, name: "E07", price: 35, category: "Abaya", material: "Crepe", stock: true, images: ["/IndulgeWebsite/E10/E10.3.jpg", "/IndulgeWebsite/E10/E10.1.jpg", "/IndulgeWebsite/E10/E10.2.jpg", "/IndulgeWebsite/E10/E10.4.jpg"], description: "Code: E06. A luxurious abaya in elegant black that catches the eye, decorated with high-quality glass beads with a crystal-like shine." },
+        { id: 15, name: "E08", price: 39, category: "Abaya", material: "Crepe", stock: true, images: ["/IndulgeWebsite/E06/E06.3.jpg", "/IndulgeWebsite/E06/E06.1.jpg", "/IndulgeWebsite/E06/E06.2.jpg"], description: "Code: E08. An elegantly designed abaya, complemented by beautiful hand-beading on the sleeves, where shiny black beads are precisely distributed to give you a soft touch and a comfortable cut." },
+        { id: 16, name: "E09", price: 49, category: "Abaya", material: "Crepe", stock: true, images: ["/IndulgeWebsite/E07/E07.1.jpg", "/IndulgeWebsite/E07/E07.3.jpg", "/IndulgeWebsite/E07/E07.2.jpg"], description: "Code: E09. An abaya with hand embroidery on the chest and sleeves, adorned with shimmering black beads meticulously distributed to add an elegant and eye-catching touch." },
+        { id: 17, name: "E10", price: 52, category: "Abaya", material: "Crepe", stock: true, images: ["/IndulgeWebsite/E08/E08.1.jpg", "/IndulgeWebsite/E08/E08.3.jpg", "/IndulgeWebsite/E08/E08.2.jpg", "/IndulgeWebsite/E08/E08.4.jpg"], description: "Code: E10. An off-white abaya that is an ideal choice for special occasions and stylish outings. Available in different colours." },
     ];
 
-    const [products, setProducts] = useState(initialProducts);
+    const [products, setProducts] = useState([...initialProducts].sort((a, b) => b.id - a.id));
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [selectedMaterials, setSelectedMaterials] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -31,23 +34,16 @@ function Shop({ basket, setBasket }) {
     const [activeProduct, setActiveProduct] = useState(null);
     const [stockFilter, setStockFilter] = useState("all");
     const [selectedSizes, setSelectedSizes] = useState({});
+    const [customMeasurements, setCustomMeasurements] = useState({});
+    const [showMeasurements, setShowMeasurements] = useState({});
+    const [selectedQuantities, setSelectedQuantities] = useState({});
+    const clothingSizes = ["XS", "S", "M", "L", "XL", "XXL"];
 
     useEffect(() => {
-        const handleResize = () => {
-            setProductsPerPage(window.innerWidth <= 768 ? 6 : 9);
-        };
+        const handleResize = () => setProductsPerPage(window.innerWidth <= 768 ? 6 : 9);
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
-
-    useEffect(() => {
-        const storedBasket = sessionStorage.getItem("basket");
-        if (storedBasket) setBasket(JSON.parse(storedBasket));
-    }, [setBasket]);
-
-    useEffect(() => {
-        sessionStorage.setItem("basket", JSON.stringify(basket));
-    }, [basket]);
 
     const handleCheckboxChange = (type, value) => {
         if (type === "category") setSelectedCategories(prev => prev.includes(value) ? prev.filter(c => c !== value) : [...prev, value]);
@@ -67,42 +63,71 @@ function Shop({ basket, setBasket }) {
         setProducts(sorted);
     };
 
-    const filteredProducts = products.filter(
-        p =>
-            (selectedCategories.length === 0 || selectedCategories.includes(p.category)) &&
-            (selectedMaterials.length === 0 || selectedMaterials.includes(p.material)) &&
-            (stockFilter === "all" || (stockFilter === "in" && p.stock) || (stockFilter === "out" && !p.stock))
+    let filteredProducts = products.filter(p =>
+        (selectedCategories.length === 0 || selectedCategories.includes(p.category)) &&
+        (selectedMaterials.length === 0 || selectedMaterials.includes(p.material)) &&
+        (stockFilter === "all" || (stockFilter === "in" && p.stock) || (stockFilter === "out" && !p.stock))
     );
+
+    if (stockFilter === "all") {
+        const inStock = filteredProducts.filter(p => p.stock);
+        const outStock = filteredProducts.filter(p => !p.stock);
+        filteredProducts = [...inStock, ...outStock];
+    }
 
     const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
     const startIndex = (currentPage - 1) * productsPerPage;
     const currentProducts = filteredProducts.slice(startIndex, startIndex + productsPerPage);
 
-    const handleCardClick = (id) => {
-        setActiveProduct(activeProduct === id ? null : id);
-    };
+    const handleCardClick = (id) => setActiveProduct(activeProduct === id ? null : id);
 
-    const handleSizeChange = (id, size) => {
-        setSelectedSizes(prev => ({ ...prev, [id]: size }));
-    };
+    const handleSizeChange = (id, size) => setSelectedSizes(prev => ({ ...prev, [id]: size }));
 
     const handleAddToBasket = (product) => {
-        const selectedSize = selectedSizes[product.id];
-        if (!selectedSize) { alert("Please select a size before adding to basket."); return; }
-        setBasket(prev => [...prev, { ...product, size: selectedSize }]);
+        const quantity = selectedQuantities[product.id] || 1;
+        if (product.category === "Set") {
+            const selectedSize = selectedSizes[product.id];
+            if (!selectedSize) { alert("Please select a size before adding to basket."); return; }
+            setBasket(prev => {
+                const existingIndex = prev.findIndex(item => item.id === product.id && item.size === selectedSize);
+                if (existingIndex >= 0) {
+                    const updated = [...prev];
+                    updated[existingIndex].quantity += quantity;
+                    sessionStorage.setItem("basket", JSON.stringify(updated));
+                    return updated;
+                } else {
+                    const updated = [...prev, { ...product, size: selectedSize, quantity }];
+                    sessionStorage.setItem("basket", JSON.stringify(updated));
+                    return updated;
+                }
+            });
+        } else {
+            const measurements = customMeasurements[product.id];
+            if (!measurements || Object.values(measurements).some(v => !v)) { alert("Please fill in all measurements before adding to basket."); return; }
+            setBasket(prev => {
+                const existingIndex = prev.findIndex(item => item.id === product.id && JSON.stringify(item.measurements) === JSON.stringify(measurements));
+                if (existingIndex >= 0) {
+                    const updated = [...prev];
+                    updated[existingIndex].quantity += quantity;
+                    sessionStorage.setItem("basket", JSON.stringify(updated));
+                    return updated;
+                } else {
+                    const updated = [...prev, { ...product, measurements, quantity }];
+                    sessionStorage.setItem("basket", JSON.stringify(updated));
+                    return updated;
+                }
+            });
+        }
     };
+
+    const toggleMeasurements = (id) => setShowMeasurements(prev => ({ ...prev, [id]: !prev[id] }));
 
     return (
         <div>
-            <div className="hero-text">
-                <h1>Indulge Oman</h1>
-            </div>
-
+            <div className="hero-text"><h1>Indulge Oman</h1></div>
             <div className="top-controls">
                 <div className="control-buttons top-row">
                     <Link to="/" className="btn-control">Home</Link>
-                </div>
-                <div className="control-buttons top-row">
                     <Link to="/SizeChart" className="btn-control">Size Chart</Link>
                 </div>
                 <div className="control-buttons bottom-row">
@@ -116,32 +141,27 @@ function Shop({ basket, setBasket }) {
                     </Link>
                 </div>
             </div>
+
             <div className="shop-FS">
                 <div className={`shop-Filter ${showFilter ? "show" : ""}`}>
                     <nav>
                         <h2>Category</h2>
                         <ul className="Category">
                             {["Abaya", "Set", "Jalabiya", "Other"].map(cat => (
-                                <label key={cat}>{cat} <input type="checkbox" className="checkbox" onChange={() => handleCheckboxChange("category", cat)} /></label>
+                                <label key={cat}>{cat}<input type="checkbox" className="checkbox" onChange={() => handleCheckboxChange("category", cat)} /></label>
                             ))}
                         </ul>
                         <h2>Material</h2>
                         <ul className="Category">
-                            {["Cotton", "Linen"].map(mat => (
-                                <label key={mat}>{mat} <input type="checkbox" className="checkbox" onChange={() => handleCheckboxChange("material", mat)} /></label>
+                            {["Crepe", "Chiffon", "Linen", "Other"].map(mat => (
+                                <label key={mat}>{mat}<input type="checkbox" className="checkbox" onChange={() => handleCheckboxChange("material", mat)} /></label>
                             ))}
                         </ul>
                         <h2>Stock</h2>
                         <div className="StockFilter">
-                            <label>
-                                <input type="radio" name="stock" value="all" checked={stockFilter === "all"} onChange={() => setStockFilter("all")} /> All
-                            </label>
-                            <label>
-                                <input type="radio" name="stock" value="in" checked={stockFilter === "in"} onChange={() => setStockFilter("in")} /> In Stock
-                            </label>
-                            <label>
-                                <input type="radio" name="stock" value="out" checked={stockFilter === "out"} onChange={() => setStockFilter("out")} /> Out of Stock
-                            </label>
+                            <label><input type="radio" name="stock" value="all" checked={stockFilter === "all"} onChange={() => setStockFilter("all")} /> All</label>
+                            <label><input type="radio" name="stock" value="in" checked={stockFilter === "in"} onChange={() => setStockFilter("in")} /> In Stock</label>
+                            <label><input type="radio" name="stock" value="out" checked={stockFilter === "out"} onChange={() => setStockFilter("out")} /> Out of Stock</label>
                         </div>
                         <h2>Sort By</h2>
                         <div className="SortBy">
@@ -152,64 +172,63 @@ function Shop({ basket, setBasket }) {
                         </div>
                     </nav>
                 </div>
+
                 <div className="Products">
                     {currentProducts.map(p => (
-                        <div
-                            key={p.id}
-                            className={`ProductCard ${activeProduct === p.id ? "active" : ""} ${!p.stock ? "out-of-stock" : ""}`}
-                            onClick={() => handleCardClick(p.id)}
-                        >
+                        <div key={p.id} className={`ProductCard ${activeProduct === p.id ? "active" : ""} ${!p.stock ? "out-of-stock" : ""}`} onClick={() => handleCardClick(p.id)}>
                             <div className="Media">
                                 <ImageSlider images={p.images} />
                                 <div className="description">{p.description}</div>
                             </div>
-
                             <p><strong>{p.name}</strong></p>
-
                             {p.stock ? (
                                 <>
                                     <p>{p.price} OMR</p>
                                     <small>{p.category} / {p.material}</small>
-
                                     <div className="size-select">
-                                        <label>Size: </label>
-                                        <select
-                                            value={selectedSizes[p.id] || ""}
-                                            onChange={(e) => handleSizeChange(p.id, e.target.value)}
-                                        >
-                                            <option value="">Select</option>
-                                            {["XS", "S", "M", "L", "XL", "XXL"].map(size => (
-                                                <option key={size} value={size}>{size}</option>
-                                            ))}
-                                        </select>
+                                        {p.category === "Set" ? (
+                                            <>
+                                                <label>Size: </label>
+                                                <select value={selectedSizes[p.id] || ""} onChange={(e) => handleSizeChange(p.id, e.target.value)}>
+                                                    <option value="">Select</option>
+                                                    {clothingSizes.map(size => <option key={size} value={size}>{size}</option>)}
+                                                </select>
+                                            </>
+                                        ) : (
+                                            <div className="custom-measurements-wrapper">
+                                                <button onClick={() => toggleMeasurements(p.id)} className="custom-measurements-toggle">
+                                                    {showMeasurements[p.id] ? "Hide Measurements" : "Enter Measurements"}
+                                                </button>
+                                                {showMeasurements[p.id] && (
+                                                    <div className="custom-measurements">
+                                                        {["Shoulder", "Chest", "Underarm", "Hand", "Length"].map(field => (
+                                                            <div key={field}>
+                                                                <label>{field} (cm): </label>
+                                                                <input type="number" min="0" value={customMeasurements[p.id]?.[field] || ""} onChange={(e) => setCustomMeasurements(prev => ({ ...prev, [p.id]: { ...prev[p.id], [field]: e.target.value } }))} />
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )}
                                     </div>
-
-                                    <button
-                                        className="addButton"
-                                        onClick={(e) => { e.stopPropagation(); handleAddToBasket(p); }}
-                                    >
-                                        Add to Cart
-                                    </button>
+                                    <div className="quantity-wrapper">
+                                        <label>Qty: </label>
+                                        <input type="number" min="1" value={selectedQuantities[p.id] || 1} onClick={e => e.stopPropagation()} onChange={e => setSelectedQuantities(prev => ({ ...prev, [p.id]: Number(e.target.value) }))} />
+                                    </div>
+                                    <button className="addButton" onClick={e => { e.stopPropagation(); handleAddToBasket(p); }}>Add to Cart</button>
                                 </>
                             ) : (
                                 <div className="out-of-stock-text">Out of Stock</div>
                             )}
                         </div>
                     ))}
-
                     <div className="Pagination">
                         {Array.from({ length: totalPages }, (_, i) => (
-                            <button
-                                key={i + 1}
-                                className={`page-btn ${currentPage === i + 1 ? "active" : ""}`}
-                                onClick={() => setCurrentPage(i + 1)}
-                            >
-                                {i + 1}
-                            </button>
+                            <button key={i + 1} className={`page-btn ${currentPage === i + 1 ? "active" : ""}`} onClick={() => setCurrentPage(i + 1)}>{i + 1}</button>
                         ))}
                     </div>
                 </div>
-
             </div>
         </div>
     );

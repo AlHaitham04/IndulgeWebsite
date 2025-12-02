@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 import "./Checkout.css";
 
 function Checkout({ basket, setBasket }) {
     const navigate = useNavigate();
 
+    const [customerName, setCustomerName] = useState("");
     const [address, setAddress] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
-    const [codeSent, setCodeSent] = useState(false);
-    const [enteredCode, setEnteredCode] = useState("");
-    const [verified, setVerified] = useState(false);
-    const [verificationCode, setVerificationCode] = useState("");
+    const [customerEmail, setCustomerEmail] = useState("");
 
     const deliveryFee = 2;
 
@@ -20,46 +19,69 @@ function Checkout({ basket, setBasket }) {
         }
     }, [basket, navigate]);
 
-    const sendCode = () => {
-        const code = String(Math.floor(100000 + Math.random() * 900000));
-        setVerificationCode(code);
-        setCodeSent(true);
-        alert(`Verification code sent via WhatsApp to +968${phoneNumber}: ${code}`);
-    };
-
-    const verifyCode = () => {
-        if (enteredCode === verificationCode) {
-            setVerified(true);
-            alert("Phone verified!");
-        } else {
-            alert("Incorrect code, please try again.");
-        }
-    };
-
-    const handleCheckout = () => {
-        if (!verified) {
-            alert("Please verify your phone before checkout.");
-            return;
-        }
-        if (!address || !phoneNumber) {
-            alert("Please fill in address and phone number.");
+    const handleCheckout = async () => {
+        if (!address || !phoneNumber || !customerName || !customerEmail) {
+            alert("Please fill in all required fields (Name, Address, Phone, Email).");
             return;
         }
 
-        const orderData = {
-            phone: "+968" + phoneNumber,
-            address,
-            deliveryFee,
-            items: basket.map(item => ({ name: item.name, size: item.size, price: item.price })),
-            total: basket.reduce((sum, item) => sum + item.price, 0) + deliveryFee
+        const orderItemsText = basket
+            .map((item) => {
+                let details = `Product: ${item.name}\n`;
+                if (item.measurements) {
+                    details += "Measurements:\n";
+                    Object.entries(item.measurements).forEach(
+                        ([key, value]) => (details += `  ${key}: ${value} cm\n`)
+                    );
+                } else if (item.size) {
+                    details += `Size: ${item.size}\n`;
+                }
+                details += `Quantity: ${item.quantity || 1}\n`;
+                details += `Price: ${item.price} OMR`;
+                return details;
+            })
+            .join("\n\n");
+
+        const totalPrice =
+            basket.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0) +
+            deliveryFee;
+
+        const templateParams = {
+            customer_name: customerName,
+            customer_number: "+968" + phoneNumber,
+            customer_email: customerEmail,
+            order_details: orderItemsText,
+            total_price: totalPrice,
+            customer_address: address,
         };
 
-        alert("Order placed! We will contact you via WhatsApp shortly.");
-        setBasket([]);
-        navigate("/");
+        try {
+            await emailjs.send(
+                "service_dd05age",
+                "template_a9pbrfr",
+                templateParams,
+                "IPbTiy7dPKUyzgedi"
+            );
+
+            await emailjs.send(
+                "service_ock6njr",
+                "template_x1a1p7m",
+                templateParams,
+                "bf-LTbc6lDpNFE5B_"
+            );
+
+            alert("Order placed! A copy has been sent to the customer's email.");
+            setBasket([]);
+            navigate("/");
+        } catch (err) {
+            alert("Order placed, but email sending failed.");
+        }
     };
 
-    const subtotal = basket.reduce((sum, item) => sum + item.price, 0);
+    const subtotal = basket.reduce(
+        (sum, item) => sum + item.price * (item.quantity || 1),
+        0
+    );
     const totalPrice = subtotal + deliveryFee;
 
     return (
@@ -68,70 +90,100 @@ function Checkout({ basket, setBasket }) {
 
             <div className="CheckoutPage-section">
                 <h2>Order summary</h2>
-                <ul className="CheckoutPage-order-list">
-                    {basket.map((item, idx) => (
-                        <li key={idx}>
-                            {item.name} — Size: {item.size} — {item.price} OMR
-                        </li>
-                    ))}
-                </ul>
+                {basket.map((item, idx) => (
+                    <div key={idx} className="CheckoutPage-order-item">
+                        {item.images && item.images[0] && (
+                            <img src={item.images[0]} alt={item.name} />
+                        )}
+                        <div className="CheckoutPage-item-details">
+                            <strong>{item.name}</strong>
+                            {item.measurements && (
+                                <ul className="CheckoutPage-measurements">
+                                    {Object.entries(item.measurements).map(
+                                        ([key, value]) => (
+                                            <li key={key}>
+                                                {key}: {value} cm
+                                            </li>
+                                        )
+                                    )}
+                                </ul>
+                            )}
+                            {item.size && <p>Size: {item.size}</p>}
+                            <p>Quantity: {item.quantity || 1}</p>
+                            <p>Price: {item.price * (item.quantity || 1)} OMR</p>
+                        </div>
+                    </div>
+                ))}
                 <p>Subtotal: {subtotal} OMR</p>
                 <p>Delivery Fee: {deliveryFee} OMR</p>
-                <p><strong>Total: {totalPrice} OMR</strong></p>
+                <p>
+                    <strong>Total: {totalPrice} OMR</strong>
+                </p>
             </div>
 
             <div className="CheckoutPage-section">
                 <h2>Delivery info</h2>
-                <div className="CheckoutPage-phone-container">
+
+                <label className="CheckoutPage-label">
+                    Name:
                     <input
                         type="text"
-                        value="+968"
-                        readOnly
-                        className="CheckoutPage-country-code"
+                        value={customerName}
+                        onChange={(e) => setCustomerName(e.target.value)}
+                        placeholder="Your full name"
+                        className="CheckoutPage-input"
                     />
+                </label>
+
+                <label className="CheckoutPage-label">
+                    Phone Number:
                     <input
                         type="tel"
                         value={phoneNumber}
-                        onChange={e => {
-                            const val = e.target.value.replace(/\D/g, "");
-                            setPhoneNumber(val.slice(0, 8));
-                        }}
+                        onChange={(e) =>
+                            setPhoneNumber(
+                                e.target.value.replace(/\D/g, "").slice(0, 8)
+                            )
+                        }
                         placeholder="9XXXXXXX"
-                        className="CheckoutPage-phone-number"
+                        className="CheckoutPage-input"
                     />
-                </div>
+                </label>
 
-                {phoneNumber && !codeSent && (
-                    <button className="CheckoutPage-sendCodeBtn" onClick={sendCode}>Send Verification Code</button>
-                )}
-                {codeSent && !verified && (
-                    <div>
-                        <label className="CheckoutPage-label">
-                            Enter code:
-                            <input
-                                type="text"
-                                value={enteredCode}
-                                className="CheckoutPage-input"
-                                onChange={e => setEnteredCode(e.target.value)} />
-                        </label>
-                        <button className="CheckoutPage-verifyBtn" onClick={verifyCode}>Verify Phone</button>
-                    </div>
-                )}
+                <label className="CheckoutPage-label">
+                    Email:
+                    <input
+                        type="email"
+                        value={customerEmail}
+                        onChange={(e) => setCustomerEmail(e.target.value)}
+                        placeholder="example@gmail.com"
+                        className="CheckoutPage-input"
+                    />
+                </label>
+
                 <label className="CheckoutPage-label">
                     Address:
                     <textarea
-                        className="CheckoutPage-textarea"
                         value={address}
-                        onChange={e => setAddress(e.target.value)}
-                        placeholder="Enter your full delivery address" />
+                        onChange={(e) => setAddress(e.target.value)}
+                        placeholder="Enter your full delivery address"
+                        className="CheckoutPage-textarea"
+                    />
                 </label>
             </div>
 
             <div className="CheckoutPage-section">
-                <button className="CheckoutPage-checkoutBtn" onClick={handleCheckout}>Place Order via WhatsApp</button>
+                <button
+                    className="CheckoutPage-checkoutBtn"
+                    onClick={handleCheckout}
+                >
+                    Place Order
+                </button>
             </div>
 
-            <Link to="/Shop" className="CheckoutPage-btn">Back to Shop</Link>
+            <Link to="/Shop" className="CheckoutPage-btn">
+                Back to Shop
+            </Link>
         </div>
     );
 }
