@@ -387,7 +387,7 @@ h1::after {
 .custom-measurements-wrapper {
     width: 100%;
     text-align: center;
-    margin: 0.5rem 0;
+    margin: 0rem 0;
 }
 
 .custom-measurements-toggle {
@@ -441,6 +441,69 @@ h1::after {
     border-color: #b89a67;
     box-shadow: 0 0 5px rgba(184, 154, 103, 0.5);
 }
+
+small {
+    padding: 4px;
+}
+
+
+.color-select {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.color-input-column {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 6px;
+}
+
+.color-select input[type="number"] {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background-color: #fff;
+    cursor: pointer;
+    text-align: center;
+    max-width: 80px;
+    transition: border-color 0.2s;
+}
+
+.color-select input[type="number"]:focus {
+    outline: none;
+    border-color: #b89a67;
+}
+
+.color-select button {
+    background-color: #b89a67;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    max-width: 180px;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.color-select button:hover {
+    background-color: #a1814f;
+    transform: scale(1.05);
+}
+
+.color-select span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+}
+
 
 
 @media (max-width: 768px) {

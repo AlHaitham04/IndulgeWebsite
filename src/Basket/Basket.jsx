@@ -18,7 +18,10 @@ function Basket({ basket, setBasket }) {
         sessionStorage.setItem("basket", JSON.stringify(updated));
     };
 
-    const totalPrice = localBasket.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const totalPrice = localBasket.reduce((sum, item) => {
+        const dressPrice = item.includeDress ? 8 : 0;
+        return sum + (item.price + dressPrice) * item.quantity;
+    }, 0);
 
     return (
         <div className="BasketPage">
@@ -35,7 +38,9 @@ function Basket({ basket, setBasket }) {
                 <div className="BasketItems">
                     {localBasket.map((item, index) => (
                         <div className="BasketItem" key={index}>
-                            <div className="BasketImage"><img src={item.images[0]} alt={item.name} /></div>
+                            <div className="BasketImage">
+                                <img src={item.images[0]} alt={item.name} />
+                            </div>
                             <div className="BasketInfo">
                                 <p className="BasketName"><strong>{item.name}</strong></p>
                                 {item.size && <p>Size: {item.size}</p>}
@@ -49,8 +54,12 @@ function Basket({ basket, setBasket }) {
                                         </ul>
                                     </div>
                                 )}
+                                {item.color && <p>Color: {item.color === "default" ? "Default" : item.color}</p>}
+                                {item.includeDress && <p>With Dress (+8 OMR)</p>}
                                 <p>Quantity: {item.quantity}</p>
-                                <p>Price: {item.price * item.quantity} OMR</p>
+                                <p>
+                                    Price: {(item.price + (item.includeDress ? 8 : 0)) * item.quantity} OMR
+                                </p>
                             </div>
                             <button className="removeButton" onClick={() => handleRemove(index)}>Remove</button>
                         </div>

@@ -26,10 +26,10 @@ function ImageSlider({ images }) {
     const handleTouchEnd = () => {
         if (!touchStart || !touchEnd) return;
         const distance = touchStart - touchEnd;
-        const swipeThreshold = 50; // Minimum swipe distance in px
+        const swipeThreshold = 50;
 
-        if (distance > swipeThreshold) nextSlide(); // Swipe left
-        if (distance < -swipeThreshold) prevSlide(); // Swipe right
+        if (distance > swipeThreshold) nextSlide();
+        if (distance < -swipeThreshold) prevSlide();
 
         setTouchStart(null);
         setTouchEnd(null);
@@ -48,11 +48,13 @@ function ImageSlider({ images }) {
                 ❮
             </button>
 
-            <img
-                src={images[current]}
-                alt={`slide ${current}`}
-                className="slide-img"
-            />
+            <a href={images[current]} target="_blank" rel="noopener noreferrer">
+                <img
+                    src={images[current]}
+                    alt={`slide ${current}`}
+                    className="slide-img"
+                />
+            </a>
 
             <button className="next" onClick={nextSlide}>
                 ❯

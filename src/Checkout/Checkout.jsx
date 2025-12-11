@@ -28,6 +28,7 @@ function Checkout({ basket, setBasket }) {
         const orderItemsText = basket
             .map((item) => {
                 let details = `Product: ${item.name}\n`;
+
                 if (item.measurements) {
                     details += "Measurements:\n";
                     Object.entries(item.measurements).forEach(
@@ -36,24 +37,59 @@ function Checkout({ basket, setBasket }) {
                 } else if (item.size) {
                     details += `Size: ${item.size}\n`;
                 }
+
+                if (item.color) {
+                    details += `Color: ${item.color === "default" ? "Default" : item.color}\n`;
+                }
+
+                if (item.includeDress) {
+                    details += `With Dress: Yes (+8 OMR)\n`;
+                }
+
+                const itemPrice = item.price + (item.includeDress ? 8 : 0);
                 details += `Quantity: ${item.quantity || 1}\n`;
-                details += `Price: ${item.price} OMR`;
+                details += `Price: ${itemPrice * (item.quantity || 1)} OMR`;
+
                 return details;
             })
             .join("\n\n");
 
         const totalPrice =
-            basket.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0) +
+            basket.reduce((sum, item) => sum + (item.price + (item.includeDress ? 8 : 0)) * (item.quantity || 1), 0) +
             deliveryFee;
 
         const templateParams = {
             customer_name: customerName,
             customer_number: "+968" + phoneNumber,
             customer_email: customerEmail,
-            order_details: orderItemsText,
-            total_price: totalPrice,
-            customer_address: address,
+            order_details: (() => {
+                let details = "===== ORDER SUMMARY =====\n\n";
+                details += basket.map(item => {
+                    let productDetails = "====================\n";
+                    productDetails += `Product: ${item.name}\n`;
+
+                    if (item.measurements) {
+                        productDetails += "Measurements:\n";
+                        Object.entries(item.measurements).forEach(([key, value]) => {
+                            productDetails += `  - ${key}: ${value} cm\n`;
+                        });
+                    } else if (item.size) {
+                        productDetails += `Size: ${item.size}\n`;
+                    }
+
+                    productDetails += "----------------------\n";
+                    productDetails += `Quantity: ${item.quantity || 1}\n`;
+                    productDetails += `Price: ${item.price * (item.quantity || 1)} OMR\n`;
+                    return productDetails;
+                }).join("\n");
+                details += "\n====================\n";
+                details += `TOTAL PRICE: ${totalPrice} OMR\n`;
+                return details;
+            })(),
+            customer_address: address
         };
+
+
 
         try {
             await emailjs.send(
@@ -79,7 +115,7 @@ function Checkout({ basket, setBasket }) {
     };
 
     const subtotal = basket.reduce(
-        (sum, item) => sum + item.price * (item.quantity || 1),
+        (sum, item) => sum + (item.price + (item.includeDress ? 8 : 0)) * (item.quantity || 1),
         0
     );
     const totalPrice = subtotal + deliveryFee;
@@ -109,8 +145,16 @@ function Checkout({ basket, setBasket }) {
                                 </ul>
                             )}
                             {item.size && <p>Size: {item.size}</p>}
+                            {item.color && (
+                                <p>Color: {item.color === "default" ? "Default" : item.color}</p>
+                            )}
+                            {item.includeDress && <p>With Dress: Yes (+8 OMR)</p>}
                             <p>Quantity: {item.quantity || 1}</p>
-                            <p>Price: {item.price * (item.quantity || 1)} OMR</p>
+                            <p>
+                                Price: {(item.price + (item.includeDress ? 8 : 0)) *
+                                    (item.quantity || 1)}{" "}
+                                OMR
+                            </p>
                         </div>
                     </div>
                 ))}

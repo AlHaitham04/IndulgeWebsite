@@ -6,23 +6,23 @@ import { FaShoppingBasket } from "react-icons/fa";
 
 function Shop({ basket, setBasket }) {
     const initialProducts = [
-        { id: 1, name: "E01", price: 26, category: "Abaya", material: "Crepe", stock: true, images: ["/IndulgeWebsite/E01/E01.1.jpg", "/IndulgeWebsite/E01/E01.3.jpg"], description: "Code: E01. Simple cut crepe abaya Available in different colors" },
-        { id: 2, name: "B01", price: 20, category: "Set", material: "Linen", stock: true, images: ["/IndulgeWebsite/B01/B01.1.jpg", "/IndulgeWebsite/B01/B01.2.jpg", "/IndulgeWebsite/B01/B01.3.jpg"], description: "Top & Trousers set. Available in different sizes" },
-        { id: 3, name: "E02", price: 26, category: "Abaya", material: "Crepe", stock: false, images: ["/IndulgeWebsite/E02/E02.1.jpg", "/IndulgeWebsite/E02/E02.2.jpg", "/IndulgeWebsite/E02/E02.3.jpg", "/IndulgeWebsite/E02/E02.4.jpg"], description: "Code: E02. Coat cut crepe abaya Available in different colors" },
-        { id: 4, name: "B02", price: 20, category: "Set", material: "Linen", stock: false, images: ["/IndulgeWebsite/B02/B02.1.jpg", "/IndulgeWebsite/B02/B02.2.jpg", "/IndulgeWebsite/B02/B02.3.jpg"], description: "Code: B02. Linen set - vest with comfortable elastic trousers Comes in different sizes" },
-        { id: 5, name: "E03", price: 26, category: "Abaya", material: "Crepe", stock: false, images: ["/IndulgeWebsite/E03/E03.1.jpg", "/IndulgeWebsite/E03/E03.2.jpg", "/IndulgeWebsite/E03/E03.3.jpg", "/IndulgeWebsite/E03/E03.4.jpg"], description: "Code: E03. Simple cut crepe abaya Comes in different colors" },
-        { id: 6, name: "B03", price: 20, category: "Set", material: "Linen", stock: false, images: ["/IndulgeWebsite/B03/B03.1.jpg", "/IndulgeWebsite/B03/B03.2.jpg", "/IndulgeWebsite/B03/B03.3.jpg"], description: "Code: B03. Cropped vest with comfortable elastic trousers. Comes in different sizes" },
-        { id: 7, name: "E04", price: 26, category: "Abaya", material: "Crepe", stock: false, images: ["/IndulgeWebsite/E04/E04.1.jpg"], description: "Code: E04. Coat cut crepe abaya Perfect light layerable coat also suitable for travel Available in different colours" },
-        { id: 8, name: "B04", price: 16, category: "Other", material: "Crepe", stock: false, images: ["/IndulgeWebsite/B04/B04.1.jpg"], description: "Code: B04. Under abaya dress that can be worn in multiple different ways or alone Available in different colors" },
-        { id: 9, name: "E05", price: 37, category: "Abaya", material: "Crepe", stock: true, images: ["/IndulgeWebsite/E05/E05.1.jpg", "/IndulgeWebsite/E05/E05.2.jpg"], description: "Code: E05. Luxurious black Abaya." },
-        { id: 10, name: "C01", price: 37, category: "Jalabiya", material: "Chiffon", stock: true, images: ["/IndulgeWebsite/C01/C01.1.jpg", "/IndulgeWebsite/C01/C01.2.jpg"], description: "Code: C01. Luxurious 2 layer jalabiya, outter layer made from chiffon and inner layer made from silk with delicate embroidery." },
-        { id: 11, name: "C02", price: 49, category: "Jalabiya", material: "Chiffon", stock: true, images: ["/IndulgeWebsite/C02/C02.1.jpg", "/IndulgeWebsite/C02/C02.2.jpg", "/IndulgeWebsite/C02/C02.3.jpg"], description: "Code: C02. Luxurious 2 layer jalabiya, outter layer made from chiffon and inner layer made from silk with delicate embroidery." },
-        { id: 12, name: "B05", price: 20, category: "Set", material: "Crepe", stock: true, images: ["/IndulgeWebsite/B05/B05.1.jpg", "/IndulgeWebsite/B05/B05.2.jpg", "/IndulgeWebsite/B05/B05.3.jpg"], description: "Code: B05. From sunrise to sunset, linen keeps you fresh, comfortable, and effortlessly chic. Also available in black. Sizes: S to XXL" },
-        { id: 13, name: "E06", price: 44, category: "Abaya", material: "Crepe", stock: true, images: ["/IndulgeWebsite/E09/E09.3.jpg", "/IndulgeWebsite/E09/E09.1.jpg", "/IndulgeWebsite/E09/E09.2.jpg"], description: "Code: E06. A luxurious abaya in elegant black that catches the eye, decorated with high-quality glass beads with a crystal-like shine." },
-        { id: 14, name: "E07", price: 35, category: "Abaya", material: "Crepe", stock: true, images: ["/IndulgeWebsite/E10/E10.3.jpg", "/IndulgeWebsite/E10/E10.1.jpg", "/IndulgeWebsite/E10/E10.2.jpg", "/IndulgeWebsite/E10/E10.4.jpg"], description: "Code: E06. A luxurious abaya in elegant black that catches the eye, decorated with high-quality glass beads with a crystal-like shine." },
-        { id: 15, name: "E08", price: 39, category: "Abaya", material: "Crepe", stock: true, images: ["/IndulgeWebsite/E06/E06.3.jpg", "/IndulgeWebsite/E06/E06.1.jpg", "/IndulgeWebsite/E06/E06.2.jpg"], description: "Code: E08. An elegantly designed abaya, complemented by beautiful hand-beading on the sleeves, where shiny black beads are precisely distributed to give you a soft touch and a comfortable cut." },
-        { id: 16, name: "E09", price: 49, category: "Abaya", material: "Crepe", stock: true, images: ["/IndulgeWebsite/E07/E07.1.jpg", "/IndulgeWebsite/E07/E07.3.jpg", "/IndulgeWebsite/E07/E07.2.jpg"], description: "Code: E09. An abaya with hand embroidery on the chest and sleeves, adorned with shimmering black beads meticulously distributed to add an elegant and eye-catching touch." },
-        { id: 17, name: "E10", price: 52, category: "Abaya", material: "Crepe", stock: true, images: ["/IndulgeWebsite/E08/E08.1.jpg", "/IndulgeWebsite/E08/E08.3.jpg", "/IndulgeWebsite/E08/E08.2.jpg", "/IndulgeWebsite/E08/E08.4.jpg"], description: "Code: E10. An off-white abaya that is an ideal choice for special occasions and stylish outings. Available in different colours." },
+        { id: 1, name: "E01", price: 26, category: "Abaya", material: "Crepe", colors: ["Color 1", "Color 2", "Color 3", "Color 4", "Color 5", "Color 6", "Color 7", "Color 8", "Color 9", "Color 10", "Color 11", "Color 12", "Color 13", "Color 14", "Color 15", "Color 16", "Color 17", "Color 18", "Color 19", "Color 20", "Color 21",], stock: true, images: ["/IndulgeWebsite/E01/E01.1.jpg", "/IndulgeWebsite/E01/E01.3.jpg"], description: "Code: E01. Simple cut crepe abaya Available in different colors" },
+        { id: 2, name: "B01", price: 20, category: "Set", material: "Other", colors: ["Black", "Beige"], stock: true, images: ["/IndulgeWebsite/B01/B01.1.jpg", "/IndulgeWebsite/B01/B01.2.jpg", "/IndulgeWebsite/B01/B01.3.jpg"], description: "Top & Trousers set. Available in different sizes" },
+        { id: 3, name: "E02", price: 26, category: "Abaya", material: "Crepe", colors: ["Black", "Beige"], stock: false, images: ["/IndulgeWebsite/E02/E02.1.jpg", "/IndulgeWebsite/E02/E02.2.jpg", "/IndulgeWebsite/E02/E02.3.jpg", "/IndulgeWebsite/E02/E02.4.jpg"], description: "Code: E02. Coat cut crepe abaya Available in different colors" },
+        { id: 4, name: "B02", price: 20, category: "Set", material: "Linen", colors: ["Black", "Beige"], stock: false, images: ["/IndulgeWebsite/B02/B02.1.jpg", "/IndulgeWebsite/B02/B02.2.jpg", "/IndulgeWebsite/B02/B02.3.jpg"], description: "Code: B02. Linen set - vest with comfortable elastic trousers Comes in different sizes" },
+        { id: 5, name: "E03", price: 26, category: "Abaya", material: "Crepe", colors: ["Black", "Beige"], stock: false, images: ["/IndulgeWebsite/E03/E03.1.jpg", "/IndulgeWebsite/E03/E03.2.jpg", "/IndulgeWebsite/E03/E03.3.jpg", "/IndulgeWebsite/E03/E03.4.jpg"], description: "Code: E03. Simple cut crepe abaya Comes in different colors" },
+        { id: 6, name: "B03", price: 20, category: "Set", material: "Linen", colors: ["Black", "Beige"], stock: false, images: ["/IndulgeWebsite/B03/B03.1.jpg", "/IndulgeWebsite/B03/B03.2.jpg", "/IndulgeWebsite/B03/B03.3.jpg"], description: "Code: B03. Cropped vest with comfortable elastic trousers. Comes in different sizes" },
+        { id: 7, name: "E04", price: 26, category: "Abaya", material: "Crepe", colors: ["Black", "Beige"], stock: false, images: ["/IndulgeWebsite/E04/E04.1.jpg"], description: "Code: E04. Coat cut crepe abaya Perfect light layerable coat also suitable for travel Available in different colors" },
+        { id: 8, name: "B04", price: 16, category: "Other", material: "Crepe", colors: ["Black", "Beige"], stock: false, images: ["/IndulgeWebsite/B04/B04.1.jpg"], description: "Code: B04. Under abaya dress that can be worn in multiple different ways or alone Available in different colors" },
+        { id: 9, name: "E05", price: 37, category: "Abaya", material: "Crepe", colors: ["Black", "Beige"], stock: true, images: ["/IndulgeWebsite/E05/E05.1.jpg", "/IndulgeWebsite/E05/E05.2.jpg"], description: "Code: E05. Luxurious black Abaya." },
+        { id: 10, name: "C01", price: 37, category: "Jalabiya", material: "Chiffon", colors: ["Black", "Beige"], stock: true, images: ["/IndulgeWebsite/C01/C01.1.jpg", "/IndulgeWebsite/C01/C01.2.jpg"], description: "Code: C01. Luxurious 2 layer jalabiya, outter layer made from chiffon and inner layer made from silk with delicate embroidery." },
+        { id: 11, name: "C02", price: 49, category: "Jalabiya", material: "Chiffon", colors: ["Black", "Beige"], stock: true, images: ["/IndulgeWebsite/C02/C02.1.jpg", "/IndulgeWebsite/C02/C02.2.jpg", "/IndulgeWebsite/C02/C02.3.jpg"], description: "Code: C02. Luxurious 2 layer jalabiya, outter layer made from chiffon and inner layer made from silk with delicate embroidery." },
+        { id: 12, name: "B05", price: 20, category: "Set", material: "Linen", colors: ["Black", "Beige"], stock: true, images: ["/IndulgeWebsite/B05/B05.1.jpg", "/IndulgeWebsite/B05/B05.2.jpg", "/IndulgeWebsite/B05/B05.3.jpg"], description: "Code: B05. From sunrise to sunset, linen keeps you fresh, comfortable, and effortlessly chic. Also available in different Colors. Sizes: S to XXL" },
+        { id: 13, name: "E06", price: 44, category: "Abaya", material: "Crepe", showColorSelector: true, stock: true, images: ["/IndulgeWebsite/E09/E09.3.jpg", "/IndulgeWebsite/E09/E09.1.jpg", "/IndulgeWebsite/E09/E09.2.jpg", "/IndulgeWebsite/E08/E08.4.jpg"], description: "Code: E06. A luxurious abaya in elegant black that catches the eye, decorated with high-quality glass beads with a crystal-like shine. Available in different colors." },
+        { id: 14, name: "E07", price: 35, category: "Abaya", material: "Crepe", showColorSelector: true, stock: true, images: ["/IndulgeWebsite/E10/E10.3.jpg", "/IndulgeWebsite/E10/E10.1.jpg", "/IndulgeWebsite/E10/E10.2.jpg", "/IndulgeWebsite/E10/E10.4.jpg", "/IndulgeWebsite/E08/E08.4.jpg"], description: "Code: E07. A luxurious abaya in elegant black that catches the eye, decorated with high-quality glass beads with a crystal-like shine. Available in different colors." },
+        { id: 15, name: "E08", price: 39, category: "Abaya", material: "Crepe", showColorSelector: true, stock: true, images: ["/IndulgeWebsite/E06/E06.3.jpg", "/IndulgeWebsite/E06/E06.1.jpg", "/IndulgeWebsite/E06/E06.2.jpg", "/IndulgeWebsite/E08/E08.4.jpg"], description: "Code: E08. An elegantly designed abaya, complemented by beautiful hand-beading on the sleeves, where shiny black beads are precisely distributed to give you a soft touch and a comfortable cut. Available in different colors." },
+        { id: 16, name: "E09", price: 49, category: "Abaya", material: "Crepe", showColorSelector: true, stock: true, images: ["/IndulgeWebsite/E07/E07.1.jpg", "/IndulgeWebsite/E07/E07.3.jpg", "/IndulgeWebsite/E07/E07.2.jpg", "/IndulgeWebsite/E08/E08.4.jpg"], description: "Code: E09. An abaya with hand embroidery on the chest and sleeves, adorned with shimmering black beads meticulously distributed to add an elegant and eye-catching touch. Available in different colors." },
+        { id: 17, name: "E10", price: 44, category: "Abaya", material: "Crepe", showColorSelector: true, stock: true, images: ["/IndulgeWebsite/E08/E08.1.jpg", "/IndulgeWebsite/E08/E08.3.jpg", "/IndulgeWebsite/E08/E08.2.jpg", "/IndulgeWebsite/E08/E08.4.jpg"], description: "Code: E10. An off-white abaya that is an ideal choice for special occasions and stylish outings. Available in different colors." },
     ];
 
     const [products, setProducts] = useState([...initialProducts].sort((a, b) => b.id - a.id));
@@ -34,9 +34,11 @@ function Shop({ basket, setBasket }) {
     const [activeProduct, setActiveProduct] = useState(null);
     const [stockFilter, setStockFilter] = useState("all");
     const [selectedSizes, setSelectedSizes] = useState({});
+    const [selectedColors, setSelectedColors] = useState({});
     const [customMeasurements, setCustomMeasurements] = useState({});
     const [showMeasurements, setShowMeasurements] = useState({});
     const [selectedQuantities, setSelectedQuantities] = useState({});
+    const [includeDress, setIncludeDress] = useState({});
     const clothingSizes = ["XS", "S", "M", "L", "XL", "XXL"];
 
     useEffect(() => {
@@ -80,39 +82,78 @@ function Shop({ basket, setBasket }) {
     const currentProducts = filteredProducts.slice(startIndex, startIndex + productsPerPage);
 
     const handleCardClick = (id) => setActiveProduct(activeProduct === id ? null : id);
-
     const handleSizeChange = (id, size) => setSelectedSizes(prev => ({ ...prev, [id]: size }));
+    const handleColorChange = (id, color) => setSelectedColors(prev => ({ ...prev, [id]: color }));
 
     const handleAddToBasket = (product) => {
         const quantity = selectedQuantities[product.id] || 1;
+
+        let selectedColor = selectedColors[product.id];
+        if (!selectedColor) {
+            selectedColor = "default";
+            setSelectedColors(prev => ({ ...prev, [product.id]: selectedColor }));
+        }
+
+        const dressIncluded = includeDress[product.id] || false;
+
         if (product.category === "Set") {
             const selectedSize = selectedSizes[product.id];
-            if (!selectedSize) { alert("Please select a size before adding to basket."); return; }
+            if (!selectedSize) {
+                alert("Please select a size before adding to basket.");
+                return;
+            }
+
             setBasket(prev => {
-                const existingIndex = prev.findIndex(item => item.id === product.id && item.size === selectedSize);
+                const existingIndex = prev.findIndex(item =>
+                    item.id === product.id &&
+                    item.size === selectedSize &&
+                    item.color === selectedColor &&
+                    item.includeDress === dressIncluded
+                );
                 if (existingIndex >= 0) {
                     const updated = [...prev];
                     updated[existingIndex].quantity += quantity;
                     sessionStorage.setItem("basket", JSON.stringify(updated));
                     return updated;
                 } else {
-                    const updated = [...prev, { ...product, size: selectedSize, quantity }];
+                    const updated = [...prev, {
+                        ...product,
+                        size: selectedSize,
+                        color: selectedColor,
+                        quantity,
+                        includeDress: dressIncluded
+                    }];
                     sessionStorage.setItem("basket", JSON.stringify(updated));
                     return updated;
                 }
             });
         } else {
             const measurements = customMeasurements[product.id];
-            if (!measurements || Object.values(measurements).some(v => !v)) { alert("Please fill in all measurements before adding to basket."); return; }
+            if (!measurements || Object.values(measurements).some(v => !v)) {
+                alert("Please fill in all measurements before adding to basket.");
+                return;
+            }
+
             setBasket(prev => {
-                const existingIndex = prev.findIndex(item => item.id === product.id && JSON.stringify(item.measurements) === JSON.stringify(measurements));
+                const existingIndex = prev.findIndex(item =>
+                    item.id === product.id &&
+                    JSON.stringify(item.measurements) === JSON.stringify(measurements) &&
+                    item.color === selectedColor &&
+                    item.includeDress === dressIncluded
+                );
                 if (existingIndex >= 0) {
                     const updated = [...prev];
                     updated[existingIndex].quantity += quantity;
                     sessionStorage.setItem("basket", JSON.stringify(updated));
                     return updated;
                 } else {
-                    const updated = [...prev, { ...product, measurements, quantity }];
+                    const updated = [...prev, {
+                        ...product,
+                        measurements,
+                        color: selectedColor,
+                        quantity,
+                        includeDress: dressIncluded
+                    }];
                     sessionStorage.setItem("basket", JSON.stringify(updated));
                     return updated;
                 }
@@ -120,7 +161,10 @@ function Shop({ basket, setBasket }) {
         }
     };
 
+
+
     const toggleMeasurements = (id) => setShowMeasurements(prev => ({ ...prev, [id]: !prev[id] }));
+
 
     return (
         <div>
@@ -183,8 +227,75 @@ function Shop({ basket, setBasket }) {
                             <p><strong>{p.name}</strong></p>
                             {p.stock ? (
                                 <>
-                                    <p>{p.price} OMR</p>
+                                    <p>{p.price + (includeDress[p.id] ? 8 : 0)} OMR</p>
                                     <small>{p.category} / {p.material}</small>
+
+                                    {p.name === "E10" && (
+                                        <div className="with-dress">
+                                            <label>
+                                                <small>With Dress (+8 OMR)</small>
+                                                <input
+                                                    type="checkbox"
+                                                    checked={includeDress[p.id] || false}
+                                                    onChange={(e) =>
+                                                        setIncludeDress(prev => ({ ...prev, [p.id]: e.target.checked }))
+                                                    }
+                                                    onClick={(e) => e.stopPropagation()}
+                                                />
+                                            </label>
+                                        </div>
+                                    )}
+
+                                    {p.colors && p.showColorSelector && (
+                                        <div className="color-select">
+                                            {!selectedColors[`showInput-${p.id}`] && (
+                                                <button
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        setSelectedColors(prev => ({ ...prev, [`showInput-${p.id}`]: true }));
+                                                        handleColorChange(p.id, "default");
+                                                    }}
+                                                >
+                                                    Choose Different Color (Last Image)
+                                                </button>
+                                            )}
+
+                                            {selectedColors[`showInput-${p.id}`] && (
+                                                <div className="color-input-column">
+                                                    <input
+                                                        type="number"
+                                                        min="1"
+                                                        max="21"
+                                                        placeholder="1-21"
+                                                        value={selectedColors[p.id] === "default" ? "" : selectedColors[p.id] || ""}
+                                                        onChange={(e) => {
+                                                            const val = e.target.value;
+                                                            if (val === "") {
+                                                                handleColorChange(p.id, "default");
+                                                            } else {
+                                                                let num = Number(val);
+                                                                if (num < 1) num = 1;
+                                                                if (num > 21) num = 21;
+                                                                handleColorChange(p.id, num);
+                                                            }
+                                                        }}
+                                                        onClick={(e) => e.stopPropagation()}
+                                                    />
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            handleColorChange(p.id, "default");
+                                                            setSelectedColors(prev => ({ ...prev, [`showInput-${p.id}`]: false }));
+                                                        }}
+                                                    >
+                                                        Default Color
+                                                    </button>
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
+
+
                                     <div className="size-select">
                                         {p.category === "Set" ? (
                                             <>
