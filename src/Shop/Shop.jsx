@@ -168,7 +168,11 @@ function Shop({ basket, setBasket }) {
 
     return (
         <div>
-            <div className="hero-text"><h1>Indulge Oman</h1></div>
+            <h1>
+                <span className="snell">I</span>
+                <span className="basker">ndulge</span>
+            </h1>
+
             <div className="top-controls">
                 <div className="control-buttons top-row">
                     <Link to="/" className="btn-control">Home</Link>

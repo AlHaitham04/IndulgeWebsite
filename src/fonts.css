@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'SnellRoundhand';
+    src: url('/fonts/SnellRoundhand.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.snell {
+    font-family: "SnellRoundhand";
+    letter-spacing: 3px;
+    font-weight: 600;
+
+}
+
+.basker {
+    font-family: 'Baskervville', serif;
+    text-transform: lowercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+
+}

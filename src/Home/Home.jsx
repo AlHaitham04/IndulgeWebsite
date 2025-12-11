@@ -5,9 +5,9 @@ import HomeSlider from "../HPimageSlider/HPimageSlider.jsx";
 
 
 const images = [
-  "/IndulgeWebsite/E05/E05.1.jpg",
-  "/IndulgeWebsite/C01/C01.1.jpg",
-  "/IndulgeWebsite/C02/C02.1.jpg"
+  "/E05/E05.1.jpg",
+  "/C01/C01.1.jpg",
+  "/C02/C02.1.jpg"
 
 ];
 
@@ -17,7 +17,10 @@ function Home() {
     <div className="home-container">
       <section className="hero">
         <div className="hero-text">
-          <h1 >Indulge Oman</h1>
+          <h1>
+            <span className="snell">I</span>
+            <span className="basker">ndulge</span>
+          </h1>
           <p className="intro-text">
             Where timeless style meets cultural elegance. Browse our exclusive collection of abayas and women’s wear, made to reflect your inner grace and sophistication.          </p>
           <div className="button-group">

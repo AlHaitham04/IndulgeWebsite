@@ -14,7 +14,6 @@ function ImageSlider({ images }) {
         setCurrent((prev) => (prev - 1 + images.length) % images.length);
     };
 
-    // Handle touch gestures
     const handleTouchStart = (e) => {
         setTouchStart(e.targetTouches[0].clientX);
     };
