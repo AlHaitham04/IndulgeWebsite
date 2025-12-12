@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ImageSlider from "../imageSlider/imageSlider";
 import { FaShoppingBasket } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Shop({ basket, setBasket }) {
     const initialProducts = [
@@ -14,9 +16,9 @@ function Shop({ basket, setBasket }) {
         { id: 6, name: "B03", price: 20, category: "Set", material: "Linen", colors: ["Black", "Beige"], stock: false, images: ["/B03/B03.1.jpg", "/B03/B03.2.jpg", "/B03/B03.3.jpg"], description: "Code: B03. Cropped vest with comfortable elastic trousers. Comes in different sizes" },
         { id: 7, name: "E04", price: 26, category: "Abaya", material: "Crepe", colors: ["Black", "Beige"], stock: false, images: ["/E04/E04.1.jpg"], description: "Code: E04. Coat cut crepe abaya Perfect light layerable coat also suitable for travel Available in different colors" },
         { id: 8, name: "B04", price: 16, category: "Other", material: "Crepe", colors: ["Black", "Beige"], stock: false, images: ["/B04/B04.1.jpg"], description: "Code: B04. Under abaya dress that can be worn in multiple different ways or alone Available in different colors" },
-        { id: 9, name: "E05", price: 37, category: "Abaya", material: "Crepe", colors: ["Black", "Beige"], stock: true, images: ["/E05/E05.1.jpg", "/E05/E05.2.jpg"], description: "Code: E05. Luxurious black Abaya." },
-        { id: 10, name: "C01", price: 37, category: "Jalabiya", material: "Chiffon", colors: ["Black", "Beige"], stock: true, images: ["/C01/C01.1.jpg", "/C01/C01.2.jpg"], description: "Code: C01. Luxurious 2 layer jalabiya, outter layer made from chiffon and inner layer made from silk with delicate embroidery." },
-        { id: 11, name: "C02", price: 49, category: "Jalabiya", material: "Chiffon", colors: ["Black", "Beige"], stock: true, images: ["/C02/C02.1.jpg", "/C02/C02.2.jpg", "/C02/C02.3.jpg"], description: "Code: C02. Luxurious 2 layer jalabiya, outter layer made from chiffon and inner layer made from silk with delicate embroidery." },
+        { id: 9, name: "E05", price: 37, category: "Abaya", material: "Crepe", stock: false, images: ["/E05/E05.1.jpg", "/E05/E05.2.jpg"], description: "Code: E05. Luxurious black Abaya." },
+        { id: 10, name: "C01", price: 37, category: "Jalabiya", material: "Chiffon", stock: true, images: ["/C01/C01.1.jpg", "/C01/C01.2.jpg"], description: "Code: C01. Luxurious 2 layer jalabiya, outter layer made from chiffon and inner layer made from silk with delicate embroidery." },
+        { id: 11, name: "C02", price: 49, category: "Jalabiya", material: "Chiffon", stock: true, images: ["/C02/C02.1.jpg", "/C02/C02.2.jpg", "/C02/C02.3.jpg"], description: "Code: C02. Luxurious 2 layer jalabiya, outter layer made from chiffon and inner layer made from silk with delicate embroidery." },
         { id: 12, name: "B05", price: 27, category: "Set", material: "Linen", colors: ["Black", "Beige", "Brown"], stock: true, images: ["/B05/B05.1.jpg", "/B05/B05.2.jpg", "/B05/B05.3.jpg"], description: "Code: B05. From sunrise to sunset, linen keeps you fresh, comfortable, and effortlessly chic. Also available in different Colors. Sizes: S to XXL" },
         { id: 13, name: "E06", price: 44, category: "Abaya", material: "Crepe", showColorSelector: true, colors: Array.from({ length: 21 }, (_, i) => `Color ${i + 1}`), stock: true, images: ["/E09/E09.3.jpg", "/E09/E09.1.jpg", "/E09/E09.2.jpg", "/E08/E08.4.jpg"], description: "Code: E06. A luxurious abaya in elegant black that catches the eye, decorated with high-quality glass beads with a crystal-like shine. Available in different colors." },
         { id: 14, name: "E07", price: 35, category: "Abaya", material: "Crepe", showColorSelector: true, colors: Array.from({ length: 21 }, (_, i) => `Color ${i + 1}`), stock: true, images: ["/E10/E10.3.jpg", "/E10/E10.1.jpg", "/E10/E10.2.jpg", "/E10/E10.4.jpg", "/E08/E08.4.jpg"], description: "Code: E07. A luxurious abaya in elegant black that catches the eye, decorated with high-quality glass beads with a crystal-like shine. Available in different colors." },
@@ -40,6 +42,10 @@ function Shop({ basket, setBasket }) {
     const [selectedQuantities, setSelectedQuantities] = useState({});
     const [includeDress, setIncludeDress] = useState({});
     const clothingSizes = ["XS", "S", "M", "L", "XL", "XXL"];
+
+    useEffect(() => {
+        AOS.init({ duration: 800, once: true });
+    }, []);
 
     useEffect(() => {
         const handleResize = () => setProductsPerPage(window.innerWidth <= 768 ? 6 : 9);
@@ -174,12 +180,12 @@ function Shop({ basket, setBasket }) {
 
     return (
         <div>
-            <h1>
+            <h1 data-aos="fade-down" data-aos-duration="800">
                 <span className="snell">I</span>
                 <span className="basker">ndulge</span>
             </h1>
 
-            <div className="top-controls">
+            <div className="top-controls" data-aos="fade-down" data-aos-duration="600">
                 <div className="control-buttons top-row">
                     <Link to="/" className="btn-control">Home</Link>
                     <Link to="/SizeChart" className="btn-control">Size Chart</Link>
@@ -197,7 +203,12 @@ function Shop({ basket, setBasket }) {
             </div>
 
             <div className="shop-FS">
-                <div className={`shop-Filter ${showFilter ? "show" : ""}`}>
+                <div
+                    className={`shop-Filter ${showFilter ? "show" : ""}`}
+                    data-aos="fade-right"
+                    data-aos-duration="600"
+                >
+
                     <nav>
                         <h2>Category</h2>
                         <ul className="Category">
@@ -229,7 +240,7 @@ function Shop({ basket, setBasket }) {
 
                 <div className="Products">
                     {currentProducts.map(p => (
-                        <div key={p.id} className={`ProductCard ${activeProduct === p.id ? "active" : ""} ${!p.stock ? "out-of-stock" : ""}`} onClick={() => handleCardClick(p.id)}>
+                        <div key={p.id} className={`ProductCard ${activeProduct === p.id ? "active" : ""} ${!p.stock ? "out-of-stock" : ""}`} onClick={() => handleCardClick(p.id)} data-aos="fade-up" data-aos-duration="700">
                             <div className="Media">
                                 <ImageSlider images={p.images} />
                                 <div className="description">{p.description}</div>
@@ -264,7 +275,7 @@ function Shop({ basket, setBasket }) {
                                                 onChange={(e) => handleColorChange(p.id, e.target.value)}
                                                 onClick={(e) => e.stopPropagation()}
                                             >
-                                                <option value="default">Default Color</option>
+                                                <option value="default">Color in Image</option>
                                                 {Array.from({ length: 21 }, (_, i) => (
                                                     <option key={i + 1} value={i + 1}>Color {i + 1}</option>
                                                 ))}
@@ -339,7 +350,7 @@ function Shop({ basket, setBasket }) {
                             )}
                         </div>
                     ))}
-                    <div className="Pagination">
+                    <div className="Pagination" data-aos="fade-up" data-aos-duration="700">
                         {Array.from({ length: totalPages }, (_, i) => (
                             <button key={i + 1} className={`page-btn ${currentPage === i + 1 ? "active" : ""}`} onClick={() => setCurrentPage(i + 1)}>{i + 1}</button>
                         ))}
