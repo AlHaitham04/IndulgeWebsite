@@ -102,15 +102,15 @@ function Checkout({ basket, setBasket }) {
 
         try {
             await emailjs.send(
-                "service_ynaxbfr",
+                "service_79wm1ca", /*To Indulge*/
                 "template_a9pbrfr",
                 templateParams,
                 "IPbTiy7dPKUyzgedi"
             );
 
             await emailjs.send(
-                "service_u7h3yne",
-                "template_x1a1p7m",
+                "service_gx2aqvj", /*To Customer*/
+                "template_gkjhwyo",
                 templateParams,
                 "bf-LTbc6lDpNFE5B_"
             );

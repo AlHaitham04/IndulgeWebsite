@@ -7,7 +7,7 @@ import { FaShoppingBasket } from "react-icons/fa";
 function Shop({ basket, setBasket }) {
     const initialProducts = [
         { id: 1, name: "E01", price: 26, category: "Abaya", material: "Crepe", stock: true, images: ["/E01/E01.1.jpg", "/E01/E01.3.jpg"], description: "Code: E01. Simple cut crepe abaya Available in different colors" },
-        { id: 2, name: "B01", price: 20, category: "Set", material: "Other", stock: true, images: ["/B01/B01.1.jpg", "/B01/B01.2.jpg", "/B01/B01.3.jpg"], description: "Top & Trousers set. Available in different sizes" },
+        { id: 2, name: "B01", price: 20, category: "Set", material: "Other", colors: ["Black", "Beige"], stock: true, images: ["/B01/B01.1.jpg", "/B01/B01.2.jpg", "/B01/B01.3.jpg"], description: "Top & Trousers set. Available in different sizes" },
         { id: 3, name: "E02", price: 26, category: "Abaya", material: "Crepe", colors: ["Black", "Beige"], stock: false, images: ["/E02/E02.1.jpg", "/E02/E02.2.jpg", "/E02/E02.3.jpg", "/E02/E02.4.jpg"], description: "Code: E02. Coat cut crepe abaya Available in different colors" },
         { id: 4, name: "B02", price: 20, category: "Set", material: "Linen", colors: ["Black", "Beige"], stock: false, images: ["/B02/B02.1.jpg", "/B02/B02.2.jpg", "/B02/B02.3.jpg"], description: "Code: B02. Linen set - vest with comfortable elastic trousers Comes in different sizes" },
         { id: 5, name: "E03", price: 26, category: "Abaya", material: "Crepe", colors: ["Black", "Beige"], stock: false, images: ["/E03/E03.1.jpg", "/E03/E03.2.jpg", "/E03/E03.3.jpg", "/E03/E03.4.jpg"], description: "Code: E03. Simple cut crepe abaya Comes in different colors" },
