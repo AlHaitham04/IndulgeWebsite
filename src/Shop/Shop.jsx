@@ -240,7 +240,7 @@ function Shop({ basket, setBasket }) {
 
                 <div className="Products">
                     {currentProducts.map(p => (
-                        <div key={p.id} className={`ProductCard ${activeProduct === p.id ? "active" : ""} ${!p.stock ? "out-of-stock" : ""}`} onClick={() => handleCardClick(p.id)} data-aos="fade-up" data-aos-duration="700">
+                        <div key={p.id} className={`ProductCard ${activeProduct === p.id ? "active" : ""} ${!p.stock ? "out-of-stock" : ""}`} onClick={() => handleCardClick(p.id)}>
                             <div className="Media">
                                 <ImageSlider images={p.images} />
                                 <div className="description">{p.description}</div>
