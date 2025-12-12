@@ -313,10 +313,19 @@ function Shop({ basket, setBasket }) {
                                             </div>
                                         )}
                                     </div>
-                                    <div className="quantity-wrapper">
+                                    <div className="size-select quantity-select">
                                         <label>Qty: </label>
-                                        <input type="number" min="1" value={selectedQuantities[p.id] || 1} onClick={e => e.stopPropagation()} onChange={e => setSelectedQuantities(prev => ({ ...prev, [p.id]: Number(e.target.value) }))} />
+                                        <select
+                                            value={selectedQuantities[p.id] || 1}
+                                            onClick={e => e.stopPropagation()}
+                                            onChange={e => setSelectedQuantities(prev => ({ ...prev, [p.id]: Number(e.target.value) }))}
+                                        >
+                                            {[1, 2, 3, 4, 5].map(num => (
+                                                <option key={num} value={num}>{num}</option>
+                                            ))}
+                                        </select>
                                     </div>
+
                                     <button className="addButton" onClick={e => { e.stopPropagation(); handleAddToBasket(p); }}>Add to Cart</button>
                                 </>
                             ) : (

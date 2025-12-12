@@ -105,3 +105,32 @@
     border-radius: 6px;
     object-fit: cover;
 }
+
+@media (max-width: 768px) {
+    .CheckoutPage {
+        padding: 1rem;
+    }
+
+    .CheckoutPage h1 {
+        font-size: 1.8rem;
+    }
+
+    .CheckoutPage-order-item {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .CheckoutPage-item-details {
+        min-width: unset;
+    }
+
+    .CheckoutPage-checkoutBtn,
+    .CheckoutPage-btn {
+        font-size: 0.9rem;
+    }
+
+    .CheckoutPage-order-item img {
+        width: 200px;
+        height: auto;
+    }
+}
