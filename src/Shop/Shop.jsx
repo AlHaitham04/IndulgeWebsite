@@ -17,7 +17,7 @@ function Shop({ basket, setBasket }) {
         { id: 9, name: "E05", price: 37, category: "Abaya", material: "Crepe", colors: ["Black", "Beige"], stock: true, images: ["/E05/E05.1.jpg", "/E05/E05.2.jpg"], description: "Code: E05. Luxurious black Abaya." },
         { id: 10, name: "C01", price: 37, category: "Jalabiya", material: "Chiffon", colors: ["Black", "Beige"], stock: true, images: ["/C01/C01.1.jpg", "/C01/C01.2.jpg"], description: "Code: C01. Luxurious 2 layer jalabiya, outter layer made from chiffon and inner layer made from silk with delicate embroidery." },
         { id: 11, name: "C02", price: 49, category: "Jalabiya", material: "Chiffon", colors: ["Black", "Beige"], stock: true, images: ["/C02/C02.1.jpg", "/C02/C02.2.jpg", "/C02/C02.3.jpg"], description: "Code: C02. Luxurious 2 layer jalabiya, outter layer made from chiffon and inner layer made from silk with delicate embroidery." },
-        { id: 12, name: "B05", price: 20, category: "Set", material: "Linen", colors: ["Black", "Beige", "Brown"], stock: true, images: ["/B05/B05.1.jpg", "/B05/B05.2.jpg", "/B05/B05.3.jpg"], description: "Code: B05. From sunrise to sunset, linen keeps you fresh, comfortable, and effortlessly chic. Also available in different Colors. Sizes: S to XXL" },
+        { id: 12, name: "B05", price: 27, category: "Set", material: "Linen", colors: ["Black", "Beige", "Brown"], stock: true, images: ["/B05/B05.1.jpg", "/B05/B05.2.jpg", "/B05/B05.3.jpg"], description: "Code: B05. From sunrise to sunset, linen keeps you fresh, comfortable, and effortlessly chic. Also available in different Colors. Sizes: S to XXL" },
         { id: 13, name: "E06", price: 44, category: "Abaya", material: "Crepe", showColorSelector: true, colors: Array.from({ length: 21 }, (_, i) => `Color ${i + 1}`), stock: true, images: ["/E09/E09.3.jpg", "/E09/E09.1.jpg", "/E09/E09.2.jpg", "/E08/E08.4.jpg"], description: "Code: E06. A luxurious abaya in elegant black that catches the eye, decorated with high-quality glass beads with a crystal-like shine. Available in different colors." },
         { id: 14, name: "E07", price: 35, category: "Abaya", material: "Crepe", showColorSelector: true, colors: Array.from({ length: 21 }, (_, i) => `Color ${i + 1}`), stock: true, images: ["/E10/E10.3.jpg", "/E10/E10.1.jpg", "/E10/E10.2.jpg", "/E10/E10.4.jpg", "/E08/E08.4.jpg"], description: "Code: E07. A luxurious abaya in elegant black that catches the eye, decorated with high-quality glass beads with a crystal-like shine. Available in different colors." },
         { id: 15, name: "E08", price: 39, category: "Abaya", material: "Crepe", showColorSelector: true, colors: Array.from({ length: 21 }, (_, i) => `Color ${i + 1}`), stock: true, images: ["/E06/E06.3.jpg", "/E06/E06.1.jpg", "/E06/E06.2.jpg", "/E08/E08.4.jpg"], description: "Code: E08. An elegantly designed abaya, complemented by beautiful hand-beading on the sleeves, where shiny black beads are precisely distributed to give you a soft touch and a comfortable cut. Available in different colors." },
@@ -85,16 +85,21 @@ function Shop({ basket, setBasket }) {
     const handleSizeChange = (id, size) => setSelectedSizes(prev => ({ ...prev, [id]: size }));
     const handleColorChange = (id, color) => setSelectedColors(prev => ({ ...prev, [id]: color }));
 
+    const getProductPrice = (product) => {
+        if (product.name === "B05") {
+            const qty = selectedQuantities[product.id] || 1;
+            if (qty === 1) return 27;
+            if (qty === 2) return 23;
+            return 20;
+        }
+        return product.price + (includeDress[product.id] ? 8 : 0);
+    };
+
     const handleAddToBasket = (product) => {
         const quantity = selectedQuantities[product.id] || 1;
-
-        let selectedColor = selectedColors[product.id];
-        if (!selectedColor) {
-            selectedColor = "default";
-            setSelectedColors(prev => ({ ...prev, [product.id]: selectedColor }));
-        }
-
+        const selectedColor = selectedColors[product.id] || "default";
         const dressIncluded = includeDress[product.id] || false;
+        const priceToUse = getProductPrice(product);
 
         if (product.category === "Set") {
             const selectedSize = selectedSizes[product.id];
@@ -121,7 +126,8 @@ function Shop({ basket, setBasket }) {
                         size: selectedSize,
                         color: selectedColor,
                         quantity,
-                        includeDress: dressIncluded
+                        includeDress: dressIncluded,
+                        price: priceToUse
                     }];
                     sessionStorage.setItem("basket", JSON.stringify(updated));
                     return updated;
@@ -152,16 +158,16 @@ function Shop({ basket, setBasket }) {
                         measurements,
                         color: selectedColor,
                         quantity,
-                        includeDress: dressIncluded
+                        includeDress: dressIncluded,
+                        price: priceToUse
                     }];
                     sessionStorage.setItem("basket", JSON.stringify(updated));
                     return updated;
                 }
             });
+            setShowMeasurements(prev => ({ ...prev, [product.id]: false }));
         }
     };
-
-
 
     const toggleMeasurements = (id) => setShowMeasurements(prev => ({ ...prev, [id]: !prev[id] }));
 
@@ -231,7 +237,7 @@ function Shop({ basket, setBasket }) {
                             <p><strong>{p.name}</strong></p>
                             {p.stock ? (
                                 <>
-                                    <p>{p.price + (includeDress[p.id] ? 8 : 0)} OMR</p>
+                                    <p>{getProductPrice(p)} OMR</p>
                                     <small>{p.category} / {p.material}</small>
 
                                     {p.name === "E10" && (
