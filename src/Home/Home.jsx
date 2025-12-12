@@ -43,7 +43,11 @@ function Home() {
       <section className="features">
         <div className="feature-item">
           <h2>Our Story</h2>
-          <p>From local tradition to modern elegance.</p>
+          <p>Born from a love for timeless fashion and cultural heritage, Indulge began with a
+            vision to create abayas and women's wear that celebrate grace and individuality.
+            Inspired by tradition and crafted with care, each piece reflects modern elegance
+            while honoring our roots. Our passion is bringing sophistication and comfort
+            together, so every woman can feel confident and beautiful.</p>
         </div>
       </section>
     </div>

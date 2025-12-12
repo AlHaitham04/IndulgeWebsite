@@ -6,8 +6,8 @@ import { FaShoppingBasket } from "react-icons/fa";
 
 function Shop({ basket, setBasket }) {
     const initialProducts = [
-        { id: 1, name: "E01", price: 26, category: "Abaya", material: "Crepe", colors: ["Color 1", "Color 2", "Color 3", "Color 4", "Color 5", "Color 6", "Color 7", "Color 8", "Color 9", "Color 10", "Color 11", "Color 12", "Color 13", "Color 14", "Color 15", "Color 16", "Color 17", "Color 18", "Color 19", "Color 20", "Color 21",], stock: true, images: ["/E01/E01.1.jpg", "/E01/E01.3.jpg"], description: "Code: E01. Simple cut crepe abaya Available in different colors" },
-        { id: 2, name: "B01", price: 20, category: "Set", material: "Other", colors: ["Black", "Beige"], stock: true, images: ["/B01/B01.1.jpg", "/B01/B01.2.jpg", "/B01/B01.3.jpg"], description: "Top & Trousers set. Available in different sizes" },
+        { id: 1, name: "E01", price: 26, category: "Abaya", material: "Crepe", stock: true, images: ["/E01/E01.1.jpg", "/E01/E01.3.jpg"], description: "Code: E01. Simple cut crepe abaya Available in different colors" },
+        { id: 2, name: "B01", price: 20, category: "Set", material: "Other", stock: true, images: ["/B01/B01.1.jpg", "/B01/B01.2.jpg", "/B01/B01.3.jpg"], description: "Top & Trousers set. Available in different sizes" },
         { id: 3, name: "E02", price: 26, category: "Abaya", material: "Crepe", colors: ["Black", "Beige"], stock: false, images: ["/E02/E02.1.jpg", "/E02/E02.2.jpg", "/E02/E02.3.jpg", "/E02/E02.4.jpg"], description: "Code: E02. Coat cut crepe abaya Available in different colors" },
         { id: 4, name: "B02", price: 20, category: "Set", material: "Linen", colors: ["Black", "Beige"], stock: false, images: ["/B02/B02.1.jpg", "/B02/B02.2.jpg", "/B02/B02.3.jpg"], description: "Code: B02. Linen set - vest with comfortable elastic trousers Comes in different sizes" },
         { id: 5, name: "E03", price: 26, category: "Abaya", material: "Crepe", colors: ["Black", "Beige"], stock: false, images: ["/E03/E03.1.jpg", "/E03/E03.2.jpg", "/E03/E03.3.jpg", "/E03/E03.4.jpg"], description: "Code: E03. Simple cut crepe abaya Comes in different colors" },
@@ -17,12 +17,12 @@ function Shop({ basket, setBasket }) {
         { id: 9, name: "E05", price: 37, category: "Abaya", material: "Crepe", colors: ["Black", "Beige"], stock: true, images: ["/E05/E05.1.jpg", "/E05/E05.2.jpg"], description: "Code: E05. Luxurious black Abaya." },
         { id: 10, name: "C01", price: 37, category: "Jalabiya", material: "Chiffon", colors: ["Black", "Beige"], stock: true, images: ["/C01/C01.1.jpg", "/C01/C01.2.jpg"], description: "Code: C01. Luxurious 2 layer jalabiya, outter layer made from chiffon and inner layer made from silk with delicate embroidery." },
         { id: 11, name: "C02", price: 49, category: "Jalabiya", material: "Chiffon", colors: ["Black", "Beige"], stock: true, images: ["/C02/C02.1.jpg", "/C02/C02.2.jpg", "/C02/C02.3.jpg"], description: "Code: C02. Luxurious 2 layer jalabiya, outter layer made from chiffon and inner layer made from silk with delicate embroidery." },
-        { id: 12, name: "B05", price: 20, category: "Set", material: "Linen", colors: ["Black", "Beige"], stock: true, images: ["/B05/B05.1.jpg", "/B05/B05.2.jpg", "/B05/B05.3.jpg"], description: "Code: B05. From sunrise to sunset, linen keeps you fresh, comfortable, and effortlessly chic. Also available in different Colors. Sizes: S to XXL" },
-        { id: 13, name: "E06", price: 44, category: "Abaya", material: "Crepe", showColorSelector: true, stock: true, images: ["/E09/E09.3.jpg", "/E09/E09.1.jpg", "/E09/E09.2.jpg", "/E08/E08.4.jpg"], description: "Code: E06. A luxurious abaya in elegant black that catches the eye, decorated with high-quality glass beads with a crystal-like shine. Available in different colors." },
-        { id: 14, name: "E07", price: 35, category: "Abaya", material: "Crepe", showColorSelector: true, stock: true, images: ["/E10/E10.3.jpg", "/E10/E10.1.jpg", "/E10/E10.2.jpg", "/E10/E10.4.jpg", "/E08/E08.4.jpg"], description: "Code: E07. A luxurious abaya in elegant black that catches the eye, decorated with high-quality glass beads with a crystal-like shine. Available in different colors." },
-        { id: 15, name: "E08", price: 39, category: "Abaya", material: "Crepe", showColorSelector: true, stock: true, images: ["/E06/E06.3.jpg", "/E06/E06.1.jpg", "/E06/E06.2.jpg", "/E08/E08.4.jpg"], description: "Code: E08. An elegantly designed abaya, complemented by beautiful hand-beading on the sleeves, where shiny black beads are precisely distributed to give you a soft touch and a comfortable cut. Available in different colors." },
-        { id: 16, name: "E09", price: 49, category: "Abaya", material: "Crepe", showColorSelector: true, stock: true, images: ["/E07/E07.1.jpg", "/E07/E07.3.jpg", "/E07/E07.2.jpg", "/E08/E08.4.jpg"], description: "Code: E09. An abaya with hand embroidery on the chest and sleeves, adorned with shimmering black beads meticulously distributed to add an elegant and eye-catching touch. Available in different colors." },
-        { id: 17, name: "E10", price: 44, category: "Abaya", material: "Crepe", showColorSelector: true, stock: true, images: ["/E08/E08.1.jpg", "/E08/E08.3.jpg", "/E08/E08.2.jpg", "/E08/E08.4.jpg"], description: "Code: E10. An off-white abaya that is an ideal choice for special occasions and stylish outings. Available in different colors." },
+        { id: 12, name: "B05", price: 20, category: "Set", material: "Linen", colors: ["Black", "Beige", "Brown"], stock: true, images: ["/B05/B05.1.jpg", "/B05/B05.2.jpg", "/B05/B05.3.jpg"], description: "Code: B05. From sunrise to sunset, linen keeps you fresh, comfortable, and effortlessly chic. Also available in different Colors. Sizes: S to XXL" },
+        { id: 13, name: "E06", price: 44, category: "Abaya", material: "Crepe", showColorSelector: true, colors: Array.from({ length: 21 }, (_, i) => `Color ${i + 1}`), stock: true, images: ["/E09/E09.3.jpg", "/E09/E09.1.jpg", "/E09/E09.2.jpg", "/E08/E08.4.jpg"], description: "Code: E06. A luxurious abaya in elegant black that catches the eye, decorated with high-quality glass beads with a crystal-like shine. Available in different colors." },
+        { id: 14, name: "E07", price: 35, category: "Abaya", material: "Crepe", showColorSelector: true, colors: Array.from({ length: 21 }, (_, i) => `Color ${i + 1}`), stock: true, images: ["/E10/E10.3.jpg", "/E10/E10.1.jpg", "/E10/E10.2.jpg", "/E10/E10.4.jpg", "/E08/E08.4.jpg"], description: "Code: E07. A luxurious abaya in elegant black that catches the eye, decorated with high-quality glass beads with a crystal-like shine. Available in different colors." },
+        { id: 15, name: "E08", price: 39, category: "Abaya", material: "Crepe", showColorSelector: true, colors: Array.from({ length: 21 }, (_, i) => `Color ${i + 1}`), stock: true, images: ["/E06/E06.3.jpg", "/E06/E06.1.jpg", "/E06/E06.2.jpg", "/E08/E08.4.jpg"], description: "Code: E08. An elegantly designed abaya, complemented by beautiful hand-beading on the sleeves, where shiny black beads are precisely distributed to give you a soft touch and a comfortable cut. Available in different colors." },
+        { id: 16, name: "E09", price: 49, category: "Abaya", material: "Crepe", showColorSelector: true, colors: Array.from({ length: 21 }, (_, i) => `Color ${i + 1}`), stock: true, images: ["/E07/E07.1.jpg", "/E07/E07.3.jpg", "/E07/E07.2.jpg", "/E08/E08.4.jpg"], description: "Code: E09. An abaya with hand embroidery on the chest and sleeves, adorned with shimmering black beads meticulously distributed to add an elegant and eye-catching touch. Available in different colors." },
+        { id: 17, name: "E10", price: 44, category: "Abaya", material: "Crepe", showColorSelector: true, colors: Array.from({ length: 21 }, (_, i) => `Color ${i + 1}`), stock: true, images: ["/E08/E08.1.jpg", "/E08/E08.3.jpg", "/E08/E08.2.jpg", "/E08/E08.4.jpg"], description: "Code: E10. An off-white abaya that is an ideal choice for special occasions and stylish outings. Available in different colors." },
     ];
 
     const [products, setProducts] = useState([...initialProducts].sort((a, b) => b.id - a.id));
@@ -251,53 +251,39 @@ function Shop({ basket, setBasket }) {
                                     )}
 
                                     {p.colors && p.showColorSelector && (
-                                        <div className="color-select">
-                                            {!selectedColors[`showInput-${p.id}`] && (
-                                                <button
-                                                    onClick={(e) => {
-                                                        e.stopPropagation();
-                                                        setSelectedColors(prev => ({ ...prev, [`showInput-${p.id}`]: true }));
-                                                        handleColorChange(p.id, "default");
-                                                    }}
-                                                >
-                                                    Choose Different Color (Last Image)
-                                                </button>
-                                            )}
-
-                                            {selectedColors[`showInput-${p.id}`] && (
-                                                <div className="color-input-column">
-                                                    <input
-                                                        type="number"
-                                                        min="1"
-                                                        max="21"
-                                                        placeholder="1-21"
-                                                        value={selectedColors[p.id] === "default" ? "" : selectedColors[p.id] || ""}
-                                                        onChange={(e) => {
-                                                            const val = e.target.value;
-                                                            if (val === "") {
-                                                                handleColorChange(p.id, "default");
-                                                            } else {
-                                                                let num = Number(val);
-                                                                if (num < 1) num = 1;
-                                                                if (num > 21) num = 21;
-                                                                handleColorChange(p.id, num);
-                                                            }
-                                                        }}
-                                                        onClick={(e) => e.stopPropagation()}
-                                                    />
-                                                    <button
-                                                        onClick={(e) => {
-                                                            e.stopPropagation();
-                                                            handleColorChange(p.id, "default");
-                                                            setSelectedColors(prev => ({ ...prev, [`showInput-${p.id}`]: false }));
-                                                        }}
-                                                    >
-                                                        Default Color
-                                                    </button>
-                                                </div>
-                                            )}
+                                        <div className="color-select special-color">
+                                            <label>Color (Last Image):</label>
+                                            <select
+                                                value={selectedColors[p.id] || "default"}
+                                                onChange={(e) => handleColorChange(p.id, e.target.value)}
+                                                onClick={(e) => e.stopPropagation()}
+                                            >
+                                                <option value="default">Default Color</option>
+                                                {Array.from({ length: 21 }, (_, i) => (
+                                                    <option key={i + 1} value={i + 1}>Color {i + 1}</option>
+                                                ))}
+                                            </select>
                                         </div>
                                     )}
+
+
+                                    {p.colors && !p.showColorSelector && (
+                                        <div className="size-select">
+                                            <label>Color: </label>
+                                            <select
+                                                value={selectedColors[p.id] || ""}
+                                                onChange={(e) => handleColorChange(p.id, e.target.value)}
+                                                onClick={(e) => e.stopPropagation()}
+                                            >
+                                                <option value="">Select</option>
+                                                {p.colors.map(color => (
+                                                    <option key={color} value={color}>{color}</option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    )}
+
+
 
 
                                     <div className="size-select">
