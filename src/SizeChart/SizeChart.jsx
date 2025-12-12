@@ -102,7 +102,7 @@ function SizeChart() {
             </div>
 
             <div className="SizeChartSection">
-                <img src="/IndulgeWebsite/B05/B05.1.jpg" alt="Blouse & Trouser" />
+                <img src="/B05/B05.1.jpg" alt="Blouse & Trouser" />
                 <div className="SizeTables">
                     <div className="TableGroup">
                         <h2>Blouse Size</h2>
@@ -191,7 +191,7 @@ function SizeChart() {
             </div>
 
             <div className="SizeChartSection">
-                <img src="/IndulgeWebsite/B01/B01.2.jpg" alt="Top & Trouser" />
+                <img src="/B01/B01.2.jpg" alt="Top & Trouser" />
                 <div className="SizeTables">
                     <div className="TableGroup">
                         <h2>Top</h2>
