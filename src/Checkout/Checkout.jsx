@@ -77,7 +77,6 @@ function Checkout({ basket, setBasket }) {
                         productDetails += `Size: ${item.size}\n`;
                     }
 
-                    // ✅ Add color here
                     if (item.color) {
                         productDetails += `Color: ${item.color === "default" ? "Default" : item.color}\n`;
                     }
