@@ -77,9 +77,19 @@ function Checkout({ basket, setBasket }) {
                         productDetails += `Size: ${item.size}\n`;
                     }
 
+                    // ✅ Add color here
+                    if (item.color) {
+                        productDetails += `Color: ${item.color === "default" ? "Default" : item.color}\n`;
+                    }
+
+                    if (item.includeDress) {
+                        productDetails += `With Dress: Yes (+8 OMR)\n`;
+                    }
+
                     productDetails += "----------------------\n";
                     productDetails += `Quantity: ${item.quantity || 1}\n`;
-                    productDetails += `Price: ${item.price * (item.quantity || 1)} OMR\n`;
+                    productDetails += `Price: ${(item.price + (item.includeDress ? 8 : 0)) * (item.quantity || 1)} OMR\n`;
+
                     return productDetails;
                 }).join("\n");
                 details += "\n====================\n";
