@@ -8,7 +8,7 @@ import "aos/dist/aos.css";
 
 function Shop({ basket, setBasket }) {
     const initialProducts = [
-        { id: 1, name: "E01", price: 26, category: "Abaya", material: "Crepe", stock: true, images: ["/E01/E01.1.jpg", "/E01/E01.3.jpg"], description: "Code: E01. Simple cut crepe abaya Available in different colors" },
+        { id: 1, name: "E01", price: 28, category: "Abaya", material: "Crepe", stock: true, images: ["/E01/E01.1.jpg", "/E01/E01.3.jpg"], description: "Code: E01. Simple cut crepe abaya Available in different colors" },
         { id: 2, name: "B01", price: 20, category: "Set", material: "Other", colors: ["Black", "Beige"], stock: true, images: ["/B01/B01.1.jpg", "/B01/B01.2.jpg", "/B01/B01.3.jpg"], description: "Top & Trousers set. Available in different sizes" },
         { id: 3, name: "E02", price: 26, category: "Abaya", material: "Crepe", colors: ["Black", "Beige"], stock: false, images: ["/E02/E02.1.jpg", "/E02/E02.2.jpg", "/E02/E02.3.jpg", "/E02/E02.4.jpg"], description: "Code: E02. Coat cut crepe abaya Available in different colors" },
         { id: 4, name: "B02", price: 20, category: "Set", material: "Linen", colors: ["Black", "Beige"], stock: false, images: ["/B02/B02.1.jpg", "/B02/B02.2.jpg", "/B02/B02.3.jpg"], description: "Code: B02. Linen set - vest with comfortable elastic trousers Comes in different sizes" },
@@ -42,6 +42,14 @@ function Shop({ basket, setBasket }) {
     const [selectedQuantities, setSelectedQuantities] = useState({});
     const [includeDress, setIncludeDress] = useState({});
     const clothingSizes = ["XS", "S", "M", "L", "XL", "XXL"];
+    const colorSizeMap = {
+        B01: {
+            Beige: ["S", "M", "XXL"],
+            Black: ["XS", "S", "XL"],
+        },
+    };
+
+
 
     useEffect(() => {
         AOS.init({ duration: 800, once: true });
@@ -301,18 +309,37 @@ function Shop({ basket, setBasket }) {
                                     )}
 
 
-
-
                                     <div className="size-select">
                                         {p.category === "Set" ? (
                                             <>
                                                 <label>Size: </label>
-                                                <select value={selectedSizes[p.id] || ""} onChange={(e) => handleSizeChange(p.id, e.target.value)}>
+                                                <select
+                                                    value={selectedSizes[p.id] || ""}
+                                                    onChange={(e) => handleSizeChange(p.id, e.target.value)}
+                                                    onClick={(e) => e.stopPropagation()}
+                                                    disabled={p.name === "B01" && !selectedColors[p.id]}
+                                                >
                                                     <option value="">Select</option>
-                                                    {clothingSizes.map(size => <option key={size} value={size}>{size}</option>)}
+
+                                                    {p.name === "B01" &&
+                                                        selectedColors[p.id] &&
+                                                        colorSizeMap.B01[selectedColors[p.id]]?.map(size => (
+                                                            <option key={size} value={size}>{size}</option>
+                                                        ))
+                                                    }
+
+                                                    {p.name !== "B01" &&
+                                                        clothingSizes.map(size => (
+                                                            <option key={size} value={size}>{size}</option>
+                                                        ))
+                                                    }
                                                 </select>
+
+
                                             </>
                                         ) : (
+
+
                                             <div className="custom-measurements-wrapper">
                                                 <button onClick={() => toggleMeasurements(p.id)} className="custom-measurements-toggle">
                                                     {showMeasurements[p.id] ? "Hide Measurements" : "Enter Measurements"}
