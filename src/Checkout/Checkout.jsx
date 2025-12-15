@@ -48,7 +48,6 @@ function Checkout({ basket, setBasket }) {
 
                 const itemPrice = item.price + (item.includeDress ? 8 : 0);
                 details += `Quantity: ${item.quantity || 1}\n`;
-                details += `Delivery Fee: 2 OMR`;
                 details += `Price: ${itemPrice * (item.quantity || 1)} OMR`;
 
                 return details;
